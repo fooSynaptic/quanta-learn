@@ -25,4 +25,4 @@ class Solution(object):
 
 
 ans = Solution()
-#print(ans.buildTree([3,9,20,15,7], [9,3,15,20,7]))
+print(ans.buildTree([3,9,20,15,7], [9,3,15,20,7]))
