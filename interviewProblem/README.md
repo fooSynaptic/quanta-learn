@@ -1,12 +1,13 @@
 # Problem List:
+you can pr to share your own solution and discuss with me in the issue.
 ---
 
-- Compute the square of a real number `n`, keep 6 decimals. [(solution)](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/square_n.py)
+- Compute the square of a real number `n`, keep 6 decimals. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/square_n.py)
 
 - Given three circles with the centers `o` and the radius `r`, compute their area, keep 6 decimals, the metric of `o` and `r`
-can be arbitrary number. (solution)
+can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/AreaofCricle.py)
 
-- Check if a binary search tree is a valide balence tree.
+- Check if a binary search tree is a valide balence tree. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/valide_balence_BST.py)
 
 - the 100 power of `2`.
 
