@@ -29,6 +29,7 @@ def heap_sort(arr):
             time.sleep(1)
         arr[i] = top
 
+
     ### build heap
     n = len(arr)
     for i in range(n//2-1, -1, -1):
