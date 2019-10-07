@@ -1,4 +1,32 @@
 #py3
+# /usr/bin/python3
+import random
+from random import randint
+
+random.seed(1234)
+
+
+def bubbleSort(nums):
+    n = len(nums)
+
+    for k in range(n, 0, -1):
+        Sort = True
+        for i in range(1, k):
+            if nums[i-1] > nums[i]:
+                nums[i-1], nums[i] = nums[i], nums[i-1]
+                Sort = False
+        if Sort == True:
+            break
+
+    return nums
+
+#print(bubbleSort([randint(1, 10) for _ in range(10)]))
+
+
+
+
+
+
 
 def bubble_sort(nums):
     ops = 0
@@ -8,6 +36,7 @@ def bubble_sort(nums):
                 nums[i], nums[i+1] = nums[i+1], nums[i]
                 ops += 1
     return nums, ops
+
 
 def fine_bubble_sort(nums):
     ops = 0
@@ -65,9 +94,6 @@ def signed_arr(nums):
 
     return nums
     
-
-
-print(signed_arr(arr))
 
 
 def evaluate(nums):
