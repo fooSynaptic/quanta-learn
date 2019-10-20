@@ -11,4 +11,5 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 - the 100 power of `2`.
 
-- 
+- the `k` nearest point from `(0, 0)`(cpl smaller than `nlogn`).[ref solution]
+(https://github.com/fooSynaptic/exam/blob/master/interviewProblem/nNear.py)
