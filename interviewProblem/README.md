@@ -9,6 +9,6 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 - Check if a binary search tree is a valide balence tree. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/valide_balence_BST.py)
 
-- the 100 power of `2`.
+- [the 100 power of `2`(fastPower).](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/greatPower.py)
 
 - 
