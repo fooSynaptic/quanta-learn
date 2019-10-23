@@ -9,7 +9,11 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 - Check if a binary search tree is a valide balence tree. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/valide_balence_BST.py)
 
-- [the 100 power of `2`(fastPower).](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/greatPower.py)
+- The 100 power of `2`(fastPower).[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/greatPower.py)
 
-- the `k` nearest point from `(0, 0)`(cpl smaller than `nlogn`).[ref solution]
+- The `k` nearest point from `(0, 0)`(cpl smaller than `nlogn`).[ref solution]
 (https://github.com/fooSynaptic/exam/blob/master/interviewProblem/nNear.py)
+
+- Copy listnode with random pointer, **with cycle**.
+
+- 
