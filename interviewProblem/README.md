@@ -16,4 +16,4 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 - Copy listnode with random pointer, **with cycle**.
 
-- 
+- Given item array with length n and value array of length k, for k times, you can pick begin or end in the item array, the total value is the multiply of item and value, return the highest value choices. [ref splution]
