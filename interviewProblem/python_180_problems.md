@@ -159,34 +159,141 @@ python3中没有long类型，只有int类型
 - 
 
 13.如何优雅的给一个函数加注释？
+---
+使用#在函数头加上注释，或者使用三个引号在函数内部依照PEP规范进行注释以及方法说明。
+
 14.如何给变量加注释？
+---
+变量注解
+
 15.Python 代码缩进中是否支持 Tab 键和空格混用。
+---
+在一个函数和一个类的方法定义中，只能使用tab和空格中的一种，但是不同函数可以采用tab或者空格。
+
 16.是否可以在一句 import 中导入多个库?
+---
+可以，`import jieba, re, os`
+
 17.在给 Py 文件命名的时候需要注意什么?
+---
+注意和系统模块的命名冲突。
+
 18.例举几个规范 Python 代码风格的工具数据类型字符串
+---
+
 19.列举 Python 中的基本数据类型？
+---
+list, set, int, float, string, tuple, dict.
+
 20.如何区别可变数据类型和不可变数据类型
+---
+
 21.将"hello world"转换为首字母大写"Hello World"
+---
+`return ' '.join([w..capitalize() for w in "hello world".split()])`
+
 22.如何检测字符串中只含有数字?
+---
+`return all([char.isnumeric() for char in string])`
+
 23.将字符串"ilovechina"进行反转
+---
+```python
+string = "ilovechina"
+
+### slice
+return string[::-1]
+
+### recursion inplace, space cplx O(1)
+def reverse(s):
+    if len(s) < 2: return s
+    elif len(s) == 2: return s[1] + s[0]
+    l, r = 0, len(s)-1
+    mid = (l+r)//2
+    return reverse(s[mid:]) + reverse(s[:mid])
+```
+
 24.Python 中的字符串格式化方式你知道哪些？
-25.有一个字符串开头和末尾都有空格，比如“ adabdw ”,要求写一个函数把这个字符串的前后空格都去掉。26.获取字符串”123456“最后的两个字符。
+---
+```python
+f"i got a {varname}"
+"i got a {}".format(varname)
+```
+
+
+25.有一个字符串开头和末尾都有空格，比如“ adabdw ”,要求写一个函数把这个字符串的前后空格都去掉。
+---
+```python
+s = '  asb   '
+
+### 1
+return s.strip()
+
+### 2
+def mystrip(s):
+    while s.strartswith(' '): s = s[1:]
+    while s.endswith(' '): s = s[:-1]
+    return s
+```
+
+26.获取字符串”123456“最后的两个字符。
+---
+`return s[-2:]`
+
 27.一个编码为 GBK 的字符串 S，要将其转成 UTF-8 编码的字符串，应如何操作？
+---
+`s.encode('utf-8')`
+
 28. 
+---
 - (1)s="info：xiaoZhang 33 shandong"，用正则切分字符串输出['info', 'xiaoZhang', '33', 'shandong']
+```python
+import re
+return re.split(' ', s)
+```
 - (2) a = "你好 中国 "，去除多余空格只留一个空格。
+`return re.sub(' ', '', a)`
 
 29. 
+---
 - (1)怎样将字符串转换为小写 
+`return string.lower()`
 - (2)单引号、双引号、三引号的区别？
+单引号等同于双引号，三引号为多行注释。
+
+
 
 30.已知 AList = [1,2,3,1,2],对 AList 列表元素去重，写出具体过程。
+---
+?set
+
 31.如何实现 "1,2,3" 变成 ["1","2","3"]
+---
+re.split, split,
+
 32.给定两个 list，A 和 B，找出相同元素和不同元素
+---
+```python
+return [x for x in A if x in B]
+return [x for x in A if not x in B]
+```
+
 33.[[1,2],[3,4],[5,6]]一行代码展开该列表，得出[1,2,3,4,5,6]
+---
+`>>> [int(x) for x in re.sub('[^0-9]', ' ', str(l)).split()]`
+
 34.合并列表[1,5,7,9]和[2,2,6,8]
+---
+`return a+b; a.extend(b), return a`
+
 35.如何打乱一个列表的元素？
+---
+`random.shuffle(list)`
+
 36.字典操作中 del 和 pop 有什么区别
+---
+del删除了key，value， 
+
 37.按照字典的内的年龄排序
 
 <img src="https://pic2.zhimg.com/50/v2-f0c87fcad0839af06187a4def1706f51_hd.jpg" data-caption="" data-size="normal" data-rawwidth="834" data-rawheight="124" class="origin_image zh-lightbox-thumb" width="834" data-original="https://pic2.zhimg.com/v2-f0c87fcad0839af06187a4def1706f51_r.jpg"/>
