@@ -796,3 +796,9 @@ git add, commit, push, pull, checkout, reset, git log, git diff
 170.git 如何查看某次提交修改的内容
 ---
 git diff
+
+171.`和为100的三个正整数有多少个(三个数各不相同)，请用列表解析的方法生成所有可能的组合，同时输出组合的个数。`
+---
+```python
+return [(x, y, z) for x in range(1, 99) for y in range(1, 99) for z in range(1, 99) if x+y+z==100 and x!=y and y!=z and x!=z]
+```
