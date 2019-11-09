@@ -8,6 +8,32 @@ We collectted the interview problems mentioned in the <剑指offer> and provided
 ---
 003-从尾到头打印链表
 ---
+```python
+### stack
+def solution1(head):
+    if head is None: return
+    
+    printString = ''
+
+    stack = []
+    p = head
+    while p:
+        stack.append(p)
+        p = p.next
+
+    while len(stack) > 0:
+        #print(stack.pop().val)
+        printString += str(stack.pop.val) + '->'
+
+    return printString
+
+### recursion
+def solution2(head):
+    if not head:
+        return
+    solution2(head.next)
+    print(head.val)
+```
 
 014-链表中倒数第k个结点
 ---

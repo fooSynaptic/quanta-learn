@@ -21,6 +21,7 @@ def fast_sort(nums, start, end):
         fast_sort(nums, part+1, end)
     #return nums
 
+
 def quicksort(arr, p, r):
         if p < r:
                 q = my_PARTITION(arr, p, r)
