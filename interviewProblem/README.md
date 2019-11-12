@@ -13,8 +13,7 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 - The 100 power of `2`(fastPower).[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/greatPower.py)
 
 # From byteDance
-- The `k` nearest point from `(0, 0)`(cpl smaller than `nlogn`).[ref solution]
-(https://github.com/fooSynaptic/exam/blob/master/interviewProblem/nNear.py)
+- The `k` nearest point from `(0, 0)`(cpl smaller than `nlogn`).[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/nNear.py)
 
 - Copy listnode with random pointer, **with cycle**.
 
