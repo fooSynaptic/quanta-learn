@@ -19,3 +19,7 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 - Given item array with length n and value array of length k, for k times, you can pick begin or end in the item array, the total value is the multiply of item and value, return the highest value choices. [ref splution]
 
 - Path cross the most chesses.[ref solution]
+
+- Given array s, return the minest index sum of three element, which their sum is K.
+
+- Given list with parent child pair, return the root of biggest linkset.
