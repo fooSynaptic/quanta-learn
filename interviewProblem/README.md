@@ -20,6 +20,6 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 - Path cross the most chesses.[ref solution]
 
-- Given array s, return the minest index sum of three element, which their sum is K.
+- Given array s, return the minest index sum of three element, which their sum is K.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/threeSumofIndex.py)
 
-- Given list with parent child pair, return the root of biggest linkset.
+- Given list with parent child pair, return the root of biggest linkset.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/biggestRoot.py)
