@@ -21,7 +21,7 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 - Given item array with length n and value array of length k, for k times, you can pick begin or end in the item array, the total value is the multiply of item and value, return the highest value choices. [ref solution]
 
 # From pdd
-- Path cross the most chesses.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/maxChess.py)
+- Path cross the most chess pieces.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/maxChess.py)
 
 # From bilibili
 - Given array s, return the minest index sum of three element, which their sum is K.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/threeSumofIndex.py)
