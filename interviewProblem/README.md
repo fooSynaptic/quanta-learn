@@ -26,3 +26,24 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 - Given array s, return the minest index sum of three element, which their sum is K.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/threeSumofIndex.py)
 
 - Given list with parent child pair, return the root of biggest linkset.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/biggestRoot.py)
+
+
+
+
+
+---
+# un-orientation sources
+- Most Common Word 
+```python
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        paragraph = paragraph.lower()
+        words = re.sub('[^a-z]', ' ', paragraph).split() 
+        d = dict()
+
+        for word in words:
+            d[word] = d.get(word, 0) + 1
+
+        return [x for x in sorted(d.items(), key=lambda x:x[1]) if not x[0] in banned][-1][0]
+```
+- Longest Palindromic Substring
