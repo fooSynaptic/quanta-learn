@@ -21,7 +21,7 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 # From PDD
 - Path cross the most chess pieces.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/maxChess.py)
-- Find the k larggest element from array with size N.
+- Find the k larggest element from array with size N.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/get_k_top.py)
 
 
 # From bilibili
