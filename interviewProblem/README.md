@@ -1,14 +1,14 @@
 # Problem List:
-you can pr to share your own solution and discuss with me in the issue.
+you can pr to share your own solution and discuss with me in the issues.
 ---
 
 # From ximalaya & bixin
 - Compute the square root of a real number `n`, keep 6 decimals. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/square_n.py)
 
-- Given three circles with the centers `o` and the radius `r`, compute their area, keep 6 decimals, the metric of `o` and `r`
+- Given three circles with the centers `o` and the radius `r`, compute the area of the three, keep 6 decimals, the metric of `o` and `r`
 can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/AreaofCricle.py)
 
-- Check if a binary search tree is a valide balence tree. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/valide_balence_BST.py)
+- Check if a binary search tree is a valide balanced tree. [ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/valide_balence_BST.py)
 
 - The 100 power of `2`(fastPower).[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/greatPower.py)
 
@@ -17,7 +17,7 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 - Copy listnode with random pointer, **with cycle**.
 
-- Given item array with length n and value array of length k, for k times, you can pick begin or end in the item array, the total value is the multiply of item and value, return the highest value choices. [ref solution]
+- Given item array with length n and value array of length k, for k times, you can pick begin or end in the item array, the total value is sum of the multiply of item and value, return the highest value choices strategy. [ref solution]
 
 # From PDD
 - Path cross the most chess pieces.[ref solution](https://github.com/fooSynaptic/exam/blob/master/interviewProblem/maxChess.py)
@@ -34,7 +34,7 @@ can be arbitrary number. [ref solution](https://github.com/fooSynaptic/exam/blob
 
 
 ---
-# un-orientation sources
+# un-trackable sources.
 - Most Common Word 
 ```python
 class Solution:
