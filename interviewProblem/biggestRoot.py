@@ -5,7 +5,7 @@
 Given list with parent child pair, return the root of biggest linkset.
 """
 
-### solution1 unfion find
+### solution1 union find
 def biggestRoot(pairs):
     def getParent(a, block):
         if not a == block[a]:
