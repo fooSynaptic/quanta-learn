@@ -1,8 +1,8 @@
-# Exam - Algorithm Practice Repository 📝
+# Exam - Algorithm Practice Repository <img src=".github/icons/note.svg" width="16" height="16" alt="note">
 
 A collection of algorithm implementations and solutions to coding problems from various sources including LeetCode, "Introduction to Algorithms" (CLRS), and computer science coursework.
 
-## 📚 Overview
+## <img src=".github/icons/book.svg" width="16" height="16" alt="book"> Overview
 
 This repository contains my solutions to data structure and algorithm problems, with a focus on:
 - Classic algorithm implementations
@@ -10,7 +10,7 @@ This repository contains my solutions to data structure and algorithm problems, 
 - Interview preparation problems
 - Time and space complexity analysis
 
-## 🗂️ Repository Structure
+## <img src=".github/icons/card_index.svg" width="16" height="16" alt="card index"> Repository Structure
 
 ```
 exam/
@@ -39,7 +39,7 @@ exam/
 └── interviewProblem/        # Interview problem solutions
 ```
 
-## 🚀 Getting Started
+## <img src=".github/icons/rocket.svg" width="16" height="16" alt="rocket"> Getting Started
 
 ### Prerequisites
 - Python 3.6+
@@ -55,7 +55,7 @@ python Coding/climb_steps.py
 python3 Coding/binary_insert.py
 ```
 
-## 📖 Topics Covered
+## <img src=".github/icons/book.svg" width="16" height="16" alt="book"> Topics Covered
 
 ### Data Structures
 - **Arrays and Strings**: Sorting, searching, manipulation
@@ -102,13 +102,13 @@ python3 Coding/binary_insert.py
 - Random Number Generation
 - Permutations
 
-## 💡 Problem Sources
+## <img src=".github/icons/bulb.svg" width="16" height="16" alt="bulb"> Problem Sources
 
 - [LeetCode](https://leetcode.com) - Primary source
 - [Introduction to Algorithms](https://mitpress.mit.edu/books/introduction-algorithms) (CLRS)
 - [Mathematics in Computer Science](https://link.springer.com/journal/11786)
 
-## 🎯 Interview Problems
+## <img src=".github/icons/target.svg" width="16" height="16" alt="target"> Interview Problems
 
 Special section dedicated to interview preparation:
 - Object serialization/deserialization
@@ -124,7 +124,7 @@ This repository follows these conventions:
 - **Constants**: UPPER_SNAKE_CASE
 - **Docstrings**: Google-style documentation
 
-## 🔍 Example Usage
+## <img src=".github/icons/search.svg" width="16" height="16" alt="search"> Example Usage
 
 ```python
 # Building a binary tree from traversals
