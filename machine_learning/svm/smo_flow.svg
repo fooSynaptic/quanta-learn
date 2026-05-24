@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 1310" role="img" aria-label="SMO 求解流程图">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 22px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .subtitle { font: 14px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
+      .box { fill: #f8fafc; stroke: #334155; stroke-width: 1.6; }
+      .box-main { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
+      .box-sub { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.6; }
+      .box-end { fill: #fef3c7; stroke: #d97706; stroke-width: 1.8; }
+      .diamond { fill: #fff7ed; stroke: #ea580c; stroke-width: 1.6; }
+      .label { font: 14px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; text-anchor: middle; }
+      .label-small { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; text-anchor: middle; }
+      .edge { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+      .edge-loop { stroke: #64748b; stroke-width: 1.5; fill: none; marker-end: url(#arrow); stroke-dasharray: 5 4; }
+      .edge-label { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
+      .group-title { font: 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #166534; font-weight: 700; }
+      .group-box { fill: none; stroke: #86efac; stroke-width: 1.5; stroke-dasharray: 6 4; rx: 12; }
+    </style>
+  </defs>
+
+  <text x="430" y="36" class="title" text-anchor="middle">SMO 求解流程</text>
+  <text x="430" y="58" class="subtitle" text-anchor="middle">fit → examine_example → optimize_pair</text>
+
+  <rect x="290" y="78" width="280" height="44" rx="10" class="box-main"/>
+  <text x="430" y="105" class="label">开始 fit(X, y)</text>
+
+  <rect x="250" y="148" width="360" height="56" rx="10" class="box"/>
+  <text x="430" y="172" class="label">初始化 α=0, b=0, w=0</text>
+  <text x="430" y="192" class="label-small">num_changed=0, examine_all=True</text>
+
+  <polygon points="430,238 560,298 430,358 300,298" class="diamond"/>
+  <text x="430" y="292" class="label">外层循环继续？</text>
+  <text x="430" y="310" class="label-small">iter &lt; max_iter 且</text>
+  <text x="430" y="326" class="label-small">(num_changed&gt;0 或 examine_all)</text>
+
+  <rect x="650" y="210" width="170" height="44" rx="10" class="box"/>
+  <text x="735" y="237" class="label">w = α·y @ X</text>
+
+  <rect x="650" y="276" width="170" height="44" rx="10" class="box-end"/>
+  <text x="735" y="303" class="label">结束训练</text>
+
+  <rect x="270" y="388" width="320" height="44" rx="10" class="box"/>
+  <text x="430" y="415" class="label">num_changed = 0</text>
+
+  <polygon points="430,468 560,528 430,588 300,528" class="diamond"/>
+  <text x="430" y="522" class="label">examine_all？</text>
+  <text x="430" y="540" class="label-small">决定本轮扫描范围</text>
+
+  <rect x="90" y="508" width="170" height="44" rx="10" class="box"/>
+  <text x="175" y="535" class="label">扫描全部样本</text>
+
+  <rect x="600" y="508" width="210" height="44" rx="10" class="box"/>
+  <text x="705" y="535" class="label">只扫描 0&lt;α&lt;C</text>
+
+  <rect x="250" y="618" width="360" height="44" rx="10" class="box"/>
+  <text x="430" y="645" class="label">遍历候选样本 i</text>
+
+  <polygon points="430,698 560,758 430,818 300,758" class="diamond"/>
+  <text x="430" y="752" class="label">α_i 违背 KKT？</text>
+  <text x="430" y="770" class="label-small">用 tol 容忍误差</text>
+
+  <rect x="650" y="736" width="170" height="44" rx="10" class="box"/>
+  <text x="735" y="756" class="label">否：下一个 i</text>
+  <text x="735" y="772" class="label-small">继续遍历</text>
+
+  <rect x="220" y="848" width="420" height="56" rx="10" class="box-sub"/>
+  <text x="430" y="872" class="label">选择 α_b</text>
+  <text x="430" y="892" class="label-small">优先非边界样本中 |E_a - E_b| 最大，否则遍历尝试</text>
+
+  <rect x="120" y="930" width="620" height="250" rx="12" class="group-box"/>
+  <text x="140" y="952" class="group-title">_optimize_pair(a, b) 双变量一步更新</text>
+
+  <rect x="220" y="968" width="420" height="44" rx="10" class="box"/>
+  <text x="430" y="995" class="label">计算 L / H 盒约束边界</text>
+
+  <polygon points="430,1040 540,1088 430,1136 320,1088" class="diamond"/>
+  <text x="430" y="1084" class="label">L == H 或 η ≤ eps？</text>
+
+  <rect x="220" y="1156" width="420" height="56" rx="10" class="box"/>
+  <text x="430" y="1180" class="label">α_b ← clip(α_b + y_b(E_a-E_b)/η, L, H)</text>
+  <text x="430" y="1200" class="label-small">等式约束反推 α_a，更新 b 与 w</text>
+
+  <rect x="270" y="1218" width="320" height="44" rx="10" class="box-main"/>
+  <text x="430" y="1245" class="label">成功：num_changed += 1</text>
+
+  <path d="M430 122 L430 148" class="edge"/>
+  <path d="M430 204 L430 238" class="edge"/>
+  <path d="M560 298 L650 232" class="edge"/>
+  <text x="610" y="252" class="edge-label">否</text>
+  <path d="M735 254 L735 276" class="edge"/>
+  <path d="M430 358 L430 388" class="edge"/>
+  <text x="444" y="378" class="edge-label">是</text>
+  <path d="M430 432 L430 468" class="edge"/>
+  <path d="M300 528 L260 528" class="edge"/>
+  <text x="278" y="520" class="edge-label">是</text>
+  <path d="M560 528 L600 530" class="edge"/>
+  <text x="572" y="520" class="edge-label">否</text>
+  <path d="M175 552 L175 640 L250 640" class="edge"/>
+  <path d="M705 552 L705 640 L610 640" class="edge"/>
+  <path d="M430 662 L430 698" class="edge"/>
+  <path d="M560 758 L650 758" class="edge"/>
+  <text x="592" y="748" class="edge-label">否</text>
+  <path d="M430 818 L430 848" class="edge"/>
+  <text x="444" y="838" class="edge-label">是</text>
+  <path d="M430 904 L430 968" class="edge"/>
+  <path d="M430 1012 L430 1040" class="edge"/>
+  <path d="M430 1136 L430 1156" class="edge"/>
+  <text x="444" y="1150" class="edge-label">否</text>
+  <path d="M430 1212 L430 1218" class="edge"/>
+
+  <path d="M540 1088 L820 1088 L820 758 L735 758" class="edge-loop"/>
+  <text x="760" y="1078" class="edge-label">是，跳过 pair</text>
+
+  <path d="M735 780 L735 1270 L90 1270 L90 330 L300 330" class="edge-loop"/>
+  <path d="M430 1262 L430 1270 L90 1270" class="edge-loop"/>
+  <text x="72" y="820" class="edge-label" transform="rotate(-90 72 820)">遍历结束 / 更新后，回到外层循环</text>
+</svg>

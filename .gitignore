@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+.venv/
+venv/
+.env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+
+# Legacy virtualenv (should not be tracked)
+combination/.env/
+
+# Chrome import temp copies
+reading-list/sources/chrome/*.tmp
+reading-list/sources/chrome/*-wal
+reading-list/sources/chrome/*-journal
+
+# Generated snapshots (keep structure, ignore large temp DB copies if re-generated)
+reading-list/sources/chrome/history-copy-*.db
