@@ -60,9 +60,14 @@ problem open → wip → solved（写入 solved-list，移出 problem-list）
 reading inbox → active → done/archived
 ```
 
+## Agent Skill
+
+项目 Skill 在 `skills/auto-learn-agent/SKILL.md`（`.cursor/` 已 gitignore，不提交本地 IDE 配置）。
+
 ## Agent 约束
 
 - 优先读 `catalog/*.yaml`，不要全仓库盲目 grep
+- 工具代码在 `tool-list/`，题解在 `legacy/`
 - 不修改 Chrome 原始 Profile 文件
 - 自动生成的问题保留 `source: chrome` 和原 URL
 - 解决后更新 `related` 交叉引用
