@@ -19,7 +19,33 @@ Thumbs.db
 # Cursor (local IDE config; do not commit)
 .cursor/
 
-# Legacy virtualenv (should not be tracked)
+# --- Private / local-only (do not open-source) ---
+# Catalog indexes (Chrome, problems, personal metadata)
+catalog/reading-list.yaml
+catalog/problem-list.yaml
+catalog/solved-list.yaml
+catalog/tool-list.yaml
+
+# Reading memory & Chrome snapshots
+reading-list/sources/
+reading-list/inbox/*
+reading-list/active/*
+reading-list/archive/*
+!reading-list/inbox/.gitkeep
+!reading-list/active/.gitkeep
+!reading-list/archive/.gitkeep
+
+# Auto-generated problems from Chrome import
+problem-list/algorithm/*.md
+problem-list/debug/*.md
+problem-list/system-design/*.md
+problem-list/generated-from-reading/
+
+# Local solved notes
+solved-list/notes/*
+!solved-list/notes/.gitkeep
+
+# Legacy virtualenv
 legacy/combination/.env/
 combination/.env/
 
@@ -28,10 +54,12 @@ reading-list/sources/chrome/*.tmp
 reading-list/sources/chrome/*-wal
 reading-list/sources/chrome/*-journal
 reading-list/sources/chrome/history-copy-*.db
+reading-list/sources/chrome/*.bin
+reading-list/sources/chrome/*.json
+reading-list/sources/chrome/manifest-*.json
 
 # Build artifacts
 *.o
 *.out
 *.exe
 *.dSYM/
-**/.DS_Store

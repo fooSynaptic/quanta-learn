@@ -9,7 +9,7 @@
 - 远程仓库：`https://github.com/fooSynaptic/auto-learn.git`
 - 旧目录 `exam` 已删除；题解在 `legacy/`，工具在 `tool-list/`
 
-## 四清单
+## 四清单（本地私密，不提交 Git）
 
 | 清单 | 路径 | 用途 |
 |------|------|------|
@@ -17,6 +17,8 @@
 | solved-list | `catalog/solved-list.yaml` | 已有题解与实现 |
 | reading-list | `catalog/reading-list.yaml` | 阅读记忆（含 Chrome 导入） |
 | problem-list | `catalog/problem-list.yaml` | 待解决问题 backlog |
+
+首次克隆：从 `catalog/*.yaml.example` 复制生成，见 `catalog/README.md`。
 
 ## 检索协议
 
@@ -66,7 +68,8 @@ reading inbox → active → done/archived
 
 ## Agent 约束
 
-- 优先读 `catalog/*.yaml`，不要全仓库盲目 grep
+- 优先读本地 `catalog/*.yaml`（远端仓库仅有 `*.yaml.example`）
+- **禁止**提交 `catalog/*.yaml`、`reading-list/sources/`、`problem-list/**/*.md` 到公开仓库
 - 工具代码在 `tool-list/`，题解在 `legacy/`
 - 不修改 Chrome 原始 Profile 文件
 - 自动生成的问题保留 `source: chrome` 和原 URL

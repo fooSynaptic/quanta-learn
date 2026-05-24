@@ -1,0 +1,4 @@
+# Copy to solved-list.yaml (local only, not committed)
+# Run: python3 scripts/sync_catalog_from_legacy.py
+items: []
+updated_at: null

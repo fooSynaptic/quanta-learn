@@ -29,10 +29,20 @@ auto-learn/
 
 根目录**不再**平铺 `Sorting/`、`Coding/` 等文件夹；算法工具在 `tool-list/`，题解在 `legacy/`。
 
-## 四清单
+## 公开 vs 本地
 
-| 清单 | 路径 |
-|------|------|
+| 进入 GitHub（框架） | 仅本机（私密） |
+|--------------------|----------------|
+| `scripts/`、`skills/`、`catalog/schema.md`、`*.yaml.example` | `catalog/*.yaml`（四清单索引） |
+| `tool-list/` 工具代码、`legacy/` 题解、`DESIGN.md` | `reading-list/sources/`（Chrome 快照） |
+| 目录骨架（`.gitkeep`） | `problem-list/**/*.md`（自动生成条目） |
+
+克隆后初始化本地索引见 [catalog/README.md](catalog/README.md)。
+
+## 四清单（本地 `catalog/*.yaml`）
+
+| 清单 | 本地文件 |
+|------|----------|
 | tool-list | `catalog/tool-list.yaml` |
 | solved-list | `catalog/solved-list.yaml` |
 | reading-list | `catalog/reading-list.yaml` |

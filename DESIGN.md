@@ -98,6 +98,15 @@ auto-learn/
 
 题解代码在 `legacy/`；排序、SVM、并查集等工具在 `tool-list/`。根目录不再平铺 `Sorting/`、`Coding/`。
 
+## 公开仓库 vs 本地私密
+
+| 开源（framework） | 仅本机 |
+|------------------|--------|
+| `catalog/schema.md`、`*.yaml.example`、`scripts/`、`skills/` | `catalog/*.yaml` |
+| `tool-list/`、`legacy/` 代码与文档骨架 | `reading-list/sources/`、`problem-list/**/*.md` |
+
+克隆后执行：`bash scripts/init_local_catalog.sh`
+
 ## 5. problem-list 类型
 
 | kind | 说明 | 目录 |
