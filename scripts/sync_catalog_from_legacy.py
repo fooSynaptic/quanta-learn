@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Scan legacy code directories and build solved-list / tool-list catalogs."""
+"""Scan legacy/ and tool-list/ directories to rebuild solved-list and tool-list catalogs."""
 
 from __future__ import annotations
 
@@ -22,32 +22,24 @@ from _catalog_utils import (  # noqa: E402
     today,
 )
 
+# Solved one-off problem code lives under legacy/
 SOLVED_SCAN_DIRS = [
-    "Coding",
-    "interviewProblem",
-    "jianzhiOffer/problems",
-    "Sorting",
-    "DP",
-    "machine_learning",
-    "csCourses",
-    "recursion",
-    "recursion/py_version",
-    "linklist",
-    "trees",
-    "searching",
-    "greedy",
-    "heapsort",
-    "fastsort",
-    "datastruct",
-    "cppGround",
-    "steps",
-    "num_reverse",
-    "maxaverage",
-    "max_container",
-    "math",
-    "order_Linklist",
-    "recur_list",
-    "rebptree",
+    "legacy/Coding",
+    "legacy/interviewProblem",
+    "legacy/jianzhiOffer/problems",
+    "legacy/DP",
+    "legacy/recursion",
+    "legacy/recursion/py_version",
+    "legacy/trees",
+    "legacy/searching",
+    "legacy/steps",
+    "legacy/num_reverse",
+    "legacy/maxaverage",
+    "legacy/max_container",
+    "legacy/math",
+    "legacy/order_Linklist",
+    "legacy/recur_list",
+    "legacy/rebptree",
 ]
 
 CODE_EXTENSIONS = {".py", ".c", ".cpp"}
@@ -57,11 +49,11 @@ TOOL_DEFINITIONS = [
         "id": "tool-smo-svm",
         "name": "SMOSVM",
         "kind": "library",
-        "paths": ["machine_learning/svm/smo_svm.py"],
+        "paths": ["tool-list/ml/svm/smo_svm.py"],
         "entry": "SMOSVM.fit / predict / decision_function",
         "tags": ["ml", "svm", "smo", "optimization"],
         "deps": ["numpy"],
-        "doc": "machine_learning/svm/README.md",
+        "doc": "tool-list/ml/svm/README.md",
         "related": {"reading": [], "solved": ["solved-smo-svm"]},
     },
     {
@@ -69,40 +61,42 @@ TOOL_DEFINITIONS = [
         "name": "SortingSuite",
         "kind": "library",
         "paths": [
-            "Sorting/main.py",
-            "Sorting/bubble_sort.py",
-            "Sorting/fast_sort.py",
-            "Sorting/heapSort.py",
-            "Sorting/insert_sort.py",
-            "Sorting/merge_sort.py",
-            "Sorting/select_sort.py",
+            "tool-list/algorithms/sorting/main.py",
+            "tool-list/algorithms/sorting/bubble_sort.py",
+            "tool-list/algorithms/sorting/fast_sort.py",
+            "tool-list/algorithms/sorting/heapSort.py",
+            "tool-list/algorithms/sorting/insert_sort.py",
+            "tool-list/algorithms/sorting/merge_sort.py",
+            "tool-list/algorithms/sorting/select_sort.py",
         ],
-        "entry": "Sorting/main.py",
+        "entry": "tool-list/algorithms/sorting/main.py",
         "tags": ["sorting", "algorithm"],
         "deps": [],
-        "doc": "Sorting/main.py",
+        "doc": "tool-list/algorithms/sorting/main.py",
         "related": {"reading": [], "solved": []},
     },
     {
         "id": "tool-union-find",
         "name": "UnionFind",
         "kind": "library",
-        "paths": ["csCourses/AlgorithmsFourthEdith/unionFind.py"],
+        "paths": [
+            "tool-list/algorithms/cs-courses/AlgorithmsFourthEdith/unionFind.py"
+        ],
         "entry": "UnionFind class",
         "tags": ["union-find", "graph", "disjoint-set"],
         "deps": [],
-        "doc": "csCourses/AlgorithmsFourthEdith/unionFind.py",
+        "doc": "tool-list/algorithms/cs-courses/AlgorithmsFourthEdith/unionFind.py",
         "related": {"reading": [], "solved": []},
     },
     {
         "id": "tool-linked-list",
         "name": "MyLinkedList",
         "kind": "library",
-        "paths": ["linklist/MyLinkedList.py"],
+        "paths": ["tool-list/algorithms/linked-list/MyLinkedList.py"],
         "entry": "MyLinkedList",
         "tags": ["linked-list", "data-structure"],
         "deps": [],
-        "doc": "linklist/MyLinkedList.py",
+        "doc": "tool-list/algorithms/linked-list/MyLinkedList.py",
         "related": {"reading": [], "solved": []},
     },
     {
@@ -110,30 +104,54 @@ TOOL_DEFINITIONS = [
         "name": "LinkedStack",
         "kind": "library",
         "paths": [
-            "csCourses/AlgorithmsFourthEdith/LinkedStack.py",
-            "csCourses/AlgorithmsFourthEdith/reSizedArrayStack.py",
+            "tool-list/algorithms/cs-courses/AlgorithmsFourthEdith/LinkedStack.py",
+            "tool-list/algorithms/cs-courses/AlgorithmsFourthEdith/reSizedArrayStack.py",
         ],
         "entry": "LinkedStack / ArrayStack",
         "tags": ["stack", "data-structure"],
         "deps": [],
-        "doc": "csCourses/AlgorithmsFourthEdith/LinkedStack.py",
+        "doc": "tool-list/algorithms/cs-courses/AlgorithmsFourthEdith/LinkedStack.py",
+        "related": {"reading": [], "solved": []},
+    },
+    {
+        "id": "tool-heapsort-c",
+        "name": "HeapSortC",
+        "kind": "library",
+        "paths": [
+            "tool-list/algorithms/heapsort/heapmax.c",
+            "tool-list/algorithms/heapsort/arrtoheap.c",
+            "tool-list/algorithms/heapsort/inittree.c",
+        ],
+        "entry": "heap C implementations",
+        "tags": ["heap", "sorting", "c"],
+        "deps": [],
+        "doc": "tool-list/algorithms/heapsort/",
+        "related": {"reading": [], "solved": []},
+    },
+    {
+        "id": "tool-greedy-c",
+        "name": "GreedyC",
+        "kind": "library",
+        "paths": ["tool-list/algorithms/greedy/greedy.c"],
+        "entry": "greedy.c",
+        "tags": ["greedy", "c"],
+        "deps": [],
+        "doc": "tool-list/algorithms/greedy/greedy.c",
         "related": {"reading": [], "solved": []},
     },
 ]
 
 
 def source_from_path(rel: str) -> str:
-    if rel.startswith("Coding/"):
+    if rel.startswith("legacy/Coding/"):
         return "leetcode"
-    if rel.startswith("interviewProblem/"):
+    if rel.startswith("legacy/interviewProblem/"):
         return "company"
-    if rel.startswith("jianzhiOffer/"):
+    if rel.startswith("legacy/jianzhiOffer/"):
         return "offer"
-    if rel.startswith("machine_learning/"):
+    if "tool-list/ml/" in rel:
         return "ml"
-    if rel.startswith("csCourses/"):
-        return "course"
-    if rel.startswith("Sorting/"):
+    if "tool-list/algorithms/" in rel:
         return "algorithm"
     return "legacy"
 
@@ -197,10 +215,9 @@ def main() -> None:
     solved_items = build_solved_items()
     tool_items = build_tool_items()
 
-    solved_items = merge_by_key(load_yaml(solved_path), solved_items, "id")
-    tool_items = merge_by_key(load_yaml(tool_path), tool_items, "id")
-
+    # Full replace for solved paths after directory migration
     save_yaml(solved_path, solved_items)
+    tool_items = merge_by_key(load_yaml(tool_path), tool_items, "id")
     save_yaml(tool_path, tool_items)
 
     print(f"Wrote {len(solved_items)} solved entries -> {solved_path}")

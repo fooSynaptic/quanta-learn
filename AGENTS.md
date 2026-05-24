@@ -6,7 +6,8 @@
 
 - **WSL**：`/mnt/d/code/gitreps/auto_learn`（请用此路径打开工作区）
 - **Windows**：`D:\code\gitreps\auto-learn`（联接，与上为同一仓库）
-- 旧目录 `exam` 已删除，勿再使用
+- 远程仓库：`https://github.com/fooSynaptic/auto-learn.git`
+- 旧目录 `exam` 已删除；题解在 `legacy/`，工具在 `tool-list/`
 
 ## 四清单
 

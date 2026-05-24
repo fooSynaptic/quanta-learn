@@ -89,16 +89,14 @@ auto-learn/
 │   ├── system-design/
 │   └── generated-from-reading/
 ├── solved-list/notes/
-├── tool-list/
-│   ├── registry.yaml
-│   ├── ml/
-│   ├── algorithms/
-│   └── runners/
-├── scripts/
-└── legacy/                 # 可选：后续归档现有 Coding/ 等
+├── tool-list/              # 可复用工具实现
+│   ├── ml/svm/
+│   └── algorithms/{sorting,linked-list,cs-courses,...}
+├── legacy/                 # 历史题解（Coding、面经、Offer…）
+└── scripts/
 ```
 
-Phase 1：**索引优先**，现有 `Coding/` 等目录通过 `catalog/solved-list.yaml` 引用，不强制搬迁。
+题解代码在 `legacy/`；排序、SVM、并查集等工具在 `tool-list/`。根目录不再平铺 `Sorting/`、`Coding/`。
 
 ## 5. problem-list 类型
 

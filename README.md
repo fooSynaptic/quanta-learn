@@ -1,15 +1,33 @@
 # Auto Learn
 
-个人学习 Agent 项目：用四清单索引题解、工具、阅读记忆与待解决问题。
+个人学习 Agent 项目：四清单索引 + 可复用工具 + 历史题解。
+
+**仓库**：https://github.com/fooSynaptic/auto-learn
 
 ## 目录位置
 
 | 环境 | 路径 |
 |------|------|
-| Windows（资源管理器 / Cursor） | `D:\code\gitreps\auto-learn` |
-| WSL / Linux | `/mnt/d/code/gitreps/auto_learn` |
+| Windows | `D:\code\gitreps\auto-learn` |
+| WSL | `/mnt/d/code/gitreps/auto_learn` |
 
-> 物理目录名为 `auto_learn`（WSL 兼容）；Windows 下 `auto-learn` 为指向它的联接。原 `exam` 目录已移除。
+## 仓库结构（根目录）
+
+```text
+auto-learn/
+├── catalog/           # 索引层（Agent 主读）
+├── reading-list/      # Chrome / 阅读记忆
+├── problem-list/      # 待解决问题
+├── solved-list/       # 已解决索引与笔记
+├── tool-list/         # 可复用工具实现（排序、SVM、并查集…）
+├── legacy/            # 历史题解（Coding、面经、Offer…）
+├── scripts/           # 维护脚本
+├── AGENTS.md
+├── DESIGN.md
+└── README.md
+```
+
+根目录**不再**平铺 `Sorting/`、`Coding/` 等文件夹；算法工具在 `tool-list/`，题解在 `legacy/`。
 
 ## 四清单
 
@@ -26,9 +44,7 @@
 新问题 → tool-list → solved-list → reading-list → problem-list(open)
 ```
 
-详见 [AGENTS.md](AGENTS.md)、[DESIGN.md](DESIGN.md)。
-
-## Chrome 索引
+## 维护命令
 
 ```bash
 python3 scripts/import_chrome_sources.py
