@@ -2,10 +2,12 @@
 
 **本目录下的 `*.yaml` 索引文件不进入公开仓库**，仅保留在本机。
 
+四清单服务于 **阅读清单消化**：`reading-list.yaml` 存自动导入的学习材料与进度；`tool-list` / `solved-list` 供匹配复用；`problem-list` 承接待动手项。
+
 ## 首次使用
 
 ```bash
-cd /path/to/auto-learn   # 或 auto_learn
+cd <your-clone>   # 克隆 quanta-learn 后的目录
 
 cp catalog/reading-list.yaml.example catalog/reading-list.yaml
 cp catalog/problem-list.yaml.example catalog/problem-list.yaml

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="Agent resolve workflow">
+  <defs>
+    <marker id="arw-resolve" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 18px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .box { fill: #f8fafc; stroke: #334155; stroke-width: 1.6; rx: 8; }
+      .box-start { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
+      .box-end { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.8; }
+      .label { font: 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; text-anchor: middle; }
+      .edge { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arw-resolve); }
+      .hint { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; text-anchor: middle; }
+    </style>
+  </defs>
+  <text x="360" y="28" class="title" text-anchor="middle">新问题 → 四清单检索顺序</text>
+  <rect x="16" y="72" width="88" height="44" class="box-start"/>
+  <text x="60" y="99" class="label">新问题</text>
+  <rect x="128" y="72" width="100" height="44" class="box"/>
+  <text x="178" y="99" class="label">tool-list</text>
+  <rect x="252" y="72" width="108" height="44" class="box"/>
+  <text x="306" y="99" class="label">solved-list</text>
+  <rect x="384" y="72" width="108" height="44" class="box"/>
+  <text x="438" y="99" class="label">reading-list</text>
+  <rect x="516" y="72" width="108" height="44" class="box"/>
+  <text x="570" y="92" class="label">problem-list</text>
+  <text x="570" y="108" class="label">(open)</text>
+  <rect x="648" y="72" width="56" height="44" class="box-end"/>
+  <text x="676" y="99" class="label">解决</text>
+  <line x1="104" y1="94" x2="124" y2="94" class="edge"/>
+  <line x1="228" y1="94" x2="248" y2="94" class="edge"/>
+  <line x1="360" y1="94" x2="380" y2="94" class="edge"/>
+  <line x1="492" y1="94" x2="512" y2="94" class="edge"/>
+  <line x1="624" y1="94" x2="644" y2="94" class="edge"/>
+  <text x="360" y="168" class="hint">解决后写入 solved-list；可泛化则登记 tool-list</text>
+</svg>

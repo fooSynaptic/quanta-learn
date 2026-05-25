@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" role="img" aria-label="Reading list digestion loop">
+  <defs>
+    <marker id="arw-digest" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 18px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .subtitle { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; text-anchor: middle; }
+      .box { fill: #f8fafc; stroke: #334155; stroke-width: 1.6; rx: 10; }
+      .box-in { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
+      .box-read { fill: #fdf4ff; stroke: #a855f7; stroke-width: 1.8; }
+      .box-match { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.8; }
+      .box-out { fill: #fef3c7; stroke: #d97706; stroke-width: 1.8; }
+      .label { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; text-anchor: middle; }
+      .label-sm { font: 10px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; text-anchor: middle; }
+      .edge { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arw-digest); }
+      .edge-yes { stroke: #16a34a; }
+      .edge-no { stroke: #ea580c; }
+    </style>
+  </defs>
+  <text x="410" y="28" class="title" text-anchor="middle">阅读清单消化闭环（核心价值）</text>
+  <text x="410" y="48" class="subtitle">自动取材 → 指标驱动 → 复用已有解法 → 消化 backlog</text>
+
+  <rect x="24" y="72" width="120" height="48" class="box-in"/>
+  <text x="84" y="94" class="label">浏览器 / 手动</text>
+  <text x="84" y="110" class="label-sm">学习材料来源</text>
+
+  <rect x="180" y="72" width="130" height="48" class="box"/>
+  <text x="245" y="94" class="label">import 脚本</text>
+  <text x="245" y="110" class="label-sm">只读合并</text>
+
+  <rect x="350" y="60" width="150" height="72" class="box-read"/>
+  <text x="425" y="84" class="label">&lt;CATALOG_READING&gt;</text>
+  <text x="425" y="100" class="label-sm">status · category</text>
+  <text x="425" y="114" class="label-sm">tags · related · last_seen</text>
+
+  <rect x="540" y="72" width="120" height="48" class="box"/>
+  <text x="600" y="94" class="label">classify</text>
+  <text x="600" y="110" class="label-sm">打 category 指标</text>
+
+  <rect x="180" y="180" width="140" height="64" class="box-match"/>
+  <text x="250" y="204" class="label">匹配已有能力</text>
+  <text x="250" y="220" class="label-sm">&lt;CATALOG_TOOL&gt;</text>
+  <text x="250" y="234" class="label-sm">&lt;CATALOG_SOLVED&gt;</text>
+
+  <rect x="380" y="180" width="150" height="64" class="box-out"/>
+  <text x="455" y="204" class="label">可消化？</text>
+  <text x="455" y="220" class="label-sm">是 → status: done</text>
+  <text x="455" y="234" class="label-sm">写 related 交叉引用</text>
+
+  <rect x="580" y="180" width="150" height="64" class="box-out"/>
+  <text x="655" y="204" class="label">否 → 待动手</text>
+  <text x="655" y="220" class="label-sm">reading_to_problem</text>
+  <text x="655" y="234" class="label-sm">&lt;CATALOG_PROBLEM&gt;</text>
+
+  <rect x="380" y="300" width="150" height="48" class="box-match"/>
+  <text x="455" y="322" class="label">Agent 解题</text>
+  <text x="455" y="338" class="label-sm">tool → solved → reading</text>
+
+  <rect x="580" y="300" width="150" height="48" class="box-read"/>
+  <text x="655" y="322" class="label">晋升 solved / tool</text>
+  <text x="655" y="338" class="label-sm">下次阅读更快命中</text>
+
+  <line x1="144" y1="96" x2="178" y2="96" class="edge"/>
+  <line x1="310" y1="96" x2="348" y2="96" class="edge"/>
+  <line x1="500" y1="96" x2="538" y2="96" class="edge"/>
+  <line x1="600" y1="120" x2="425" y2="132" class="edge"/>
+  <line x1="425" y1="132" x2="250" y2="178" class="edge"/>
+  <line x1="320" y1="212" x2="378" y2="212" class="edge"/>
+  <line x1="530" y1="212" x2="578" y2="212" class="edge"/>
+  <line x1="655" y1="244" x2="455" y2="298" class="edge"/>
+  <line x1="530" y1="324" x2="578" y2="324" class="edge"/>
+  <line x1="655" y1="300" x2="655" y2="244" class="edge" style="stroke-dasharray:4 3"/>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-label="Browser reading import pipeline">
+  <defs>
+    <marker id="arw-chrome" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 18px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .subtitle { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
+      .box-src { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.6; rx: 10; }
+      .box-script { fill: #fff7ed; stroke: #ea580c; stroke-width: 1.6; rx: 10; }
+      .box-store { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.6; rx: 10; }
+      .label { font: 13px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; text-anchor: middle; }
+      .label-sm { font: 11px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; text-anchor: middle; }
+      .edge { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arw-chrome); }
+    </style>
+  </defs>
+  <text x="400" y="28" class="title" text-anchor="middle">阅读源 → 索引流水线（只读导入）</text>
+  <text x="400" y="48" class="subtitle" text-anchor="middle">占位符示意，非真实路径</text>
+  <rect x="24" y="72" width="140" height="52" class="box-src"/>
+  <text x="94" y="96" class="label">浏览器 Profile</text>
+  <text x="94" y="114" class="label-sm">&lt;CHROME_USER_DATA&gt;</text>
+  <rect x="24" y="148" width="140" height="40" class="box-src"/>
+  <text x="94" y="174" class="label">书签 / 历史</text>
+  <rect x="24" y="208" width="140" height="40" class="box-src"/>
+  <text x="94" y="234" class="label">会话缓存</text>
+  <rect x="220" y="140" width="160" height="56" class="box-script"/>
+  <text x="300" y="164" class="label">import 脚本</text>
+  <text x="300" y="182" class="label-sm">只读复制，不写回 Profile</text>
+  <rect x="430" y="100" width="170" height="56" class="box-store"/>
+  <text x="515" y="124" class="label">阅读快照目录</text>
+  <text x="515" y="142" class="label-sm">&lt;READING_SOURCES&gt;</text>
+  <rect x="430" y="188" width="170" height="56" class="box-store"/>
+  <text x="515" y="212" class="label">reading 索引</text>
+  <text x="515" y="230" class="label-sm">&lt;CATALOG_READING&gt;</text>
+  <rect x="640" y="120" width="140" height="48" class="box-script"/>
+  <text x="710" y="144" class="label">分类脚本</text>
+  <rect x="640" y="220" width="140" height="48" class="box-script"/>
+  <text x="710" y="244" class="label">转 problem</text>
+  <rect x="430" y="280" width="170" height="48" class="box-store"/>
+  <text x="515" y="304" class="label">problem 索引</text>
+  <text x="515" y="320" class="label-sm">&lt;CATALOG_PROBLEM&gt;</text>
+  <line x1="164" y1="98" x2="218" y2="155" class="edge"/>
+  <line x1="164" y1="168" x2="218" y2="168" class="edge"/>
+  <line x1="164" y1="228" x2="218" y2="182" class="edge"/>
+  <line x1="380" y1="158" x2="428" y2="128" class="edge"/>
+  <line x1="380" y1="175" x2="428" y2="216" class="edge"/>
+  <line x1="600" y1="128" x2="638" y2="144" class="edge"/>
+  <line x1="600" y1="216" x2="638" y2="236" class="edge"/>
+  <line x1="710" y1="168" x2="710" y2="218" class="edge"/>
+  <line x1="680" y1="268" x2="560" y2="288" class="edge"/>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="Dashboard wireframe">
+  <defs>
+    <style>
+      .frame { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.2; rx: 6; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.4; rx: 8; }
+      .col { fill: #f8fafc; stroke: #64748b; stroke-width: 1.2; stroke-dasharray: 4 3; rx: 6; }
+      .card { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.2; rx: 6; }
+      .card-done { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.2; }
+      .card-wip { fill: #fff7ed; stroke: #ea580c; stroke-width: 1.2; }
+      .t { font: 11px "Segoe UI", "PingFang SC", sans-serif; fill: #0f172a; }
+      .th { font: 700 14px "Segoe UI", "PingFang SC", sans-serif; fill: #0f172a; }
+      .ts { font: 10px "Segoe UI", "PingFang SC", sans-serif; fill: #64748b; }
+      .item { fill: #e2e8f0; stroke: #94a3b8; rx: 4; }
+    </style>
+  </defs>
+  <rect x="8" y="8" width="884" height="504" class="frame"/>
+  <text x="24" y="32" class="th">Auto Learn Dashboard（线框）</text>
+
+  <rect x="24" y="44" width="120" height="56" class="card"/>
+  <text x="84" y="68" class="t" text-anchor="middle">阅读待消化</text>
+  <text x="84" y="88" class="th" text-anchor="middle">128</text>
+  <rect x="156" y="44" width="120" height="56" class="card-done"/>
+  <text x="216" y="68" class="t" text-anchor="middle">阅读已消化</text>
+  <text x="216" y="88" class="th" text-anchor="middle">354</text>
+  <rect x="288" y="44" width="120" height="56" class="card-wip"/>
+  <text x="348" y="68" class="t" text-anchor="middle">问题未解决</text>
+  <text x="348" y="88" class="th" text-anchor="middle">42</text>
+  <rect x="420" y="44" width="120" height="56" class="card-done"/>
+  <text x="480" y="68" class="t" text-anchor="middle">问题已解决</text>
+  <text x="480" y="88" class="th" text-anchor="middle">18</text>
+  <rect x="552" y="44" width="320" height="56" class="panel"/>
+  <text x="568" y="68" class="t">筛选：来源 · 分类 · 优先级 · 仅 inbox</text>
+  <text x="568" y="86" class="ts">进度条：消化率 73% · 问题解决率 30%</text>
+
+  <text x="24" y="128" class="th">阅读队列（Kanban）</text>
+  <rect x="24" y="136" width="200" height="360" class="col"/>
+  <text x="124" y="156" class="t" text-anchor="middle">inbox</text>
+  <rect x="36" y="168" width="176" height="28" class="item"/>
+  <rect x="36" y="202" width="176" height="28" class="item"/>
+  <rect x="36" y="236" width="176" height="28" class="item"/>
+
+  <rect x="240" y="136" width="200" height="360" class="col"/>
+  <text x="340" y="156" class="t" text-anchor="middle">active</text>
+  <rect x="252" y="168" width="176" height="28" class="item"/>
+
+  <rect x="456" y="136" width="200" height="360" class="col"/>
+  <text x="556" y="156" class="t" text-anchor="middle">done</text>
+  <rect x="468" y="168" width="176" height="28" class="item"/>
+  <rect x="468" y="202" width="176" height="28" class="item"/>
+
+  <rect x="672" y="136" width="204" height="360" class="panel"/>
+  <text x="684" y="156" class="th">问题队列</text>
+  <text x="684" y="178" class="ts">open / wip / blocked</text>
+  <rect x="684" y="188" width="180" height="24" class="item"/>
+  <rect x="684" y="220" width="180" height="24" class="item"/>
+  <text x="684" y="268" class="th">已解决</text>
+  <rect x="684" y="278" width="180" height="24" class="item"/>
+  <text x="684" y="330" class="ts">点击卡片 → 详情 / URL / 关联 tool·solved</text>
+</svg>

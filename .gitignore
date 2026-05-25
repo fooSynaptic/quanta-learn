@@ -16,8 +16,10 @@ Thumbs.db
 .idea/
 .vscode/
 
-# Cursor (local IDE config; do not commit)
-.cursor/
+# Cursor (local IDE config; rules 可入库)
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/**
 
 # --- Private / local-only (do not open-source) ---
 # Catalog indexes (Chrome, problems, personal metadata)
@@ -57,6 +59,9 @@ reading-list/sources/chrome/history-copy-*.db
 reading-list/sources/chrome/*.bin
 reading-list/sources/chrome/*.json
 reading-list/sources/chrome/manifest-*.json
+
+# Dashboard runtime data (local catalog snapshot)
+dashboard/data.json
 
 # Build artifacts
 *.o

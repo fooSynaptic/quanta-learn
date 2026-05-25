@@ -1,0 +1,40 @@
+---
+description: Git 提交禁止添加 Cursor Agent 或其他 AI 共同作者
+alwaysApply: true
+---
+
+# Git 提交：禁止 Co-authored-by / 共同作者
+
+创建或修改 **git commit** 时：
+
+## 禁止
+
+- 在 commit message 中加入 `Co-authored-by:`、`Signed-off-by:`（代 AI）或任何 **Cursor / Agent / Bot** 署名
+- 典型禁止项（含变体）：
+  - `Co-authored-by: Cursor <cursoragent@cursor.com>`
+  - `Co-authored-by: Cursor Agent …`
+  - 任意 `@cursor.com`、`cursoragent`、Copilot、OpenAI 等 **非人类** co-author
+
+## 必须
+
+- 提交信息**只保留**人类作者（仓库维护者）的说明；Agent 仅代写 diff，**不**在 message 里署名
+- 使用 HEREDOC 写 message 时，**不要**在末尾追加 co-author 行
+- 若发现 message 里已有上述行，**删除后再提交**（不要 `--no-verify` 绕过）
+
+## 示例
+
+```text
+# ❌ 禁止
+feat: add dashboard
+
+Co-authored-by: Cursor <cursoragent@cursor.com>
+
+# ✅ 正确
+feat: add dashboard
+
+Local-only catalog; no secrets in commit body.
+```
+
+## 说明
+
+GitHub **Contributors** 会把 `Co-authored-by` 算作第二位贡献者；本项目历史已清理，后续提交不得再引入。

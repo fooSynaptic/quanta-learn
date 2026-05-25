@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quanta Learn Dashboard</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Quanta Learn</h1>
+    <motion>
+    <div class="stats" id="stats"></div>
+    <button type="button" id="btn-refresh">刷新</button>
+  </header>
+
+  <nav class="tabs">
+    <button type="button" class="tab active" data-tab="reading">阅读看板</button>
+    <button type="button" class="tab" data-tab="problem">问题队列</button>
+    <button type="button" class="tab" data-tab="solved">题解</button>
+  </nav>
+
+  <main id="panel-reading" class="panel active">
+    <div class="filters" id="reading-filters"></div>
+    <div class="reading-layout">
+      <div class="kanban-wrap">
+        <div class="kanban" id="kanban"></div>
+        <details class="archived-fold" id="archived-fold">
+          <summary>归档 <span id="archived-count">0</span></summary>
+          <div class="kanban-col archived-col" id="col-archived"></motion></div>
+        </details>
+      </div>
+      <aside id="detail-panel" class="detail-panel">
+        <p class="detail-placeholder">点击左侧卡片查看标题、链接、书签路径与状态</p>
+      </aside>
+    </div>
+  </main>
+
+  <main id="panel-problem" class="panel">
+    <div class="reading-layout">
+      <div class="kanban-wrap">
+        <div class="split-queue">
+          <section>
+            <h2>未解决</h2>
+            <div id="problem-open" class="card-list"></div>
+          </section>
+          <section>
+            <h2>已解决</h2>
+            <motion>
+            <div id="problem-solved" class="card-list"></div>
+          </section>
+        </div>
+      </div>
+      <aside id="problem-detail-panel" class="detail-panel">
+        <p class="detail-placeholder">点击左侧问题查看详情</p>
+      </aside>
+    </div>
+  </main>
+
+  <main id="panel-solved" class="panel">
+    <div class="filters" id="solved-topic-filters"></div>
+    <div class="reading-layout">
+      <div class="kanban-wrap">
+        <div id="solved-list" class="card-list wide"></div>
+      </div>
+      <aside id="solved-detail-panel" class="detail-panel">
+        <p class="detail-placeholder">点击题解条目或主题标签查看详情</p>
+      </aside>
+    </div>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Repository concept layers">
+  <defs>
+    <marker id="arw-layers" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 18px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .layer { fill: #f8fafc; stroke: #334155; stroke-width: 1.6; rx: 12; }
+      .layer-open { fill: #eff6ff; stroke: #2563eb; stroke-width: 1.8; }
+      .label { font: 14px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .label-sm { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #475569; }
+      .edge { stroke: #94a3b8; stroke-width: 1.2; fill: none; marker-end: url(#arw-layers); }
+    </style>
+  </defs>
+  <text x="320" y="30" class="title" text-anchor="middle">概念分层（占位符）</text>
+  <rect x="40" y="52" width="560" height="72" class="layer-open"/>
+  <text x="56" y="78" class="label">开源框架层</text>
+  <text x="56" y="100" class="label-sm">schema · 模板 · scripts · skills · 代码骨架</text>
+  <rect x="40" y="148" width="560" height="88" class="layer"/>
+  <text x="56" y="174" class="label">索引层（Agent 主读）</text>
+  <text x="56" y="196" class="label-sm">&lt;CATALOG_DIR&gt; — 四清单 YAML（本地，默认不入库）</text>
+  <text x="56" y="218" class="label-sm">reading · problem · solved · tool</text>
+  <rect x="40" y="260" width="268" height="88" class="layer"/>
+  <text x="56" y="286" class="label">可复用实现</text>
+  <text x="56" y="308" class="label-sm">&lt;TOOL_IMPL&gt;</text>
+  <rect x="332" y="260" width="268" height="88" class="layer"/>
+  <text x="56" y="328" class="label-sm">算法、ML 等</text>
+  <text x="348" y="286" class="label">历史题解归档</text>
+  <text x="348" y="308" class="label-sm">&lt;LEGACY_SOLUTIONS&gt;</text>
+  <line x1="320" y1="124" x2="320" y2="146" class="edge"/>
+  <line x1="200" y1="236" x2="174" y2="258" class="edge"/>
+  <line x1="440" y1="236" x2="466" y2="258" class="edge"/>
+</svg>

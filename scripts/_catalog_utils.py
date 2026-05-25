@@ -1,4 +1,4 @@
-"""Shared helpers for auto-learn catalog scripts."""
+"""Shared helpers for quanta-learn catalog scripts."""
 
 from __future__ import annotations
 

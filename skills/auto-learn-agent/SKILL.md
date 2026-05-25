@@ -1,42 +1,36 @@
 ---
 name: auto-learn-agent
-description: Personal learning agent for auto-learn. Search tool-list first, then solved-list, reading-list, and problem-list. Maintain Chrome reading imports and problem state transitions.
+description: Accelerate reading-list digestion for quanta-learn. Auto-import learning materials, match tool-list and solved-list using reading metrics, convert actionable items to problems, and maintain related cross-references.
 ---
 
-# Auto Learn Agent
+# Quanta Learn Agent
 
-Use this skill when working inside the `auto-learn` repository.
+Primary goal: **digest the reading-list backlog**, not only answer one-off questions.
 
-## Layout
+## Default workflow (reading digestion)
 
-- `tool-list/` — reusable tools (sorting, SVM, union-find, …)
-- `legacy/` — historical one-off solutions (`legacy/Coding/`, …)
-- `catalog/` — YAML indexes (Agent reads these first)
+1. List `<CATALOG_READING>` items with `status: inbox` or `active`.
+2. Match `<CATALOG_TOOL>` then `<CATALOG_SOLVED>` using tags, category, title, topics.
+3. If sufficient → set `related`, `status: done`, optional `summary`.
+4. If needs work and category is algorithm/debug/system-design → ensure problem exists (`reading_to_problem.py`), solve, then update solved/tool and `related`.
 
-## Search order
+## Secondary workflow (new question)
 
-1. `catalog/tool-list.yaml`
-2. `catalog/solved-list.yaml`
-3. `catalog/reading-list.yaml`
-4. `catalog/problem-list.yaml`
+Search order: tool-list → solved-list → reading-list → problem-list.
 
-## When user asks a new question
-
-- Match reusable tools under `tool-list/` before one-off solutions in `legacy/`
-- If still unresolved, add to problem-list with `status: open`
-
-## Chrome pipeline
+## Ingest pipeline
 
 ```bash
+export CHROME_USER_DATA_DIR="<your-browser-profile-dir>"
 python3 scripts/import_chrome_sources.py
 python3 scripts/classify_reading_items.py
 python3 scripts/reading_to_problem.py
 python3 scripts/sync_catalog_from_legacy.py
 ```
 
-Never write to the Chrome profile.
+Never write to the browser profile. Do not commit local catalog YAML or reading snapshots.
 
 ## After solving
 
-- Move problem to solved-list (often under `legacy/`)
-- Propose tool-list entry if reusable
+- Update reading `related.solved` / `related.tools`
+- Add or refresh solved-list; propose tool-list if reusable

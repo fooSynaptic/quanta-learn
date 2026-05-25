@@ -1,76 +1,62 @@
-# Auto Learn Agent Guide
+# Quanta Learn — Agent 指南
 
-本仓库是个人学习 Agent 的知识索引项目。遇到问题时，按以下顺序检索。
+默认任务：**消化 reading-list backlog** — 自动取材后的学习材料在 `<CATALOG_READING>` 中；用 **tool-list**、**solved-list** 与 reading 上的**指标**匹配复用，必要时转入 problem-list。设计见 [DESIGN.md](DESIGN.md)。
 
-## 仓库路径
+## 四清单
 
-- **WSL**：`/mnt/d/code/gitreps/auto_learn`（请用此路径打开工作区）
-- **Windows**：`D:\code\gitreps\auto-learn`（联接，与上为同一仓库）
-- 远程仓库：`https://github.com/fooSynaptic/auto-learn.git`
-- 旧目录 `exam` 已删除；题解在 `legacy/`，工具在 `tool-list/`
+| 清单 | 占位符 | Agent 怎么用 |
+|------|--------|----------------|
+| reading-list | `<CATALOG_READING>` | **主队列**：按 `status`、`category`、`last_seen` 决定下一篇；消化后更新 `related`、`summary` |
+| tool-list | `<CATALOG_TOOL>` | 消化/解题时**先**按 tags、name、entry 匹配 |
+| solved-list | `<CATALOG_SOLVED>` | **再**按 topics、summary 匹配 |
+| problem-list | `<CATALOG_PROBLEM>` | reading 无法仅靠复用解决时创建或推进 `wip` |
 
-## 四清单（本地私密，不提交 Git）
+初始化：`bash scripts/init_local_catalog.sh`。字段见 [catalog/schema.md](catalog/schema.md)。
 
-| 清单 | 路径 | 用途 |
-|------|------|------|
-| tool-list | `catalog/tool-list.yaml` | 可复用工具、模板、库 |
-| solved-list | `catalog/solved-list.yaml` | 已有题解与实现 |
-| reading-list | `catalog/reading-list.yaml` | 阅读记忆（含 Chrome 导入） |
-| problem-list | `catalog/problem-list.yaml` | 待解决问题 backlog |
+## 消化 reading（优先）
 
-首次克隆：从 `catalog/*.yaml.example` 复制生成，见 `catalog/README.md`。
+![阅读消化闭环](docs/images/reading-digestion-loop.svg)
 
-## 检索协议
+1. 筛选 `status: inbox` 或 `active` 的条目。
+2. 用 `tags`、`category`、`title`、`url` 检索 `<CATALOG_TOOL>`、`<CATALOG_SOLVED>`。
+3. **命中且足够** → 填写 `related.tools` / `related.solved`，`status: done`（或 `archived`），可选 `summary`。
+4. **需动手** 且 `category` 为 algorithm / debug / system-design → 确保存在对应 problem（可提示用户跑 `reading_to_problem.py`），解题后回写 related。
+5. 解决后：写入 solved；可复用则登记 tool — 便于同主题 reading 下次直接命中。
 
-1. **tool-list**：按 tags、name、entry 匹配可复用方案
-2. **solved-list**：按 title、topics、summary 匹配历史解法
-3. **reading-list**：补概念、找来源文档
-4. **problem-list**：仍无法解决则创建/更新 `status: open`
+## 解答新问题（用户直接提问时）
 
-## problem 类型
+![检索顺序](docs/images/agent-resolve-workflow.svg)
 
-- `algorithm` — 算法与数据结构
-- `debug` — 调试与报错
-- `system-design` — 系统设计与架构
-- `reading-derived` — 从 Chrome 阅读自动转化
+tool-list → solved-list → reading-list（补材料来源）→ problem-list（`open`）
 
-## Chrome 索引维护
+## reading 指标速查
+
+| 字段 | 用途 |
+|------|------|
+| `status` | inbox / active / done / archived |
+| `category` | classify 结果；决定是否转 problem |
+| `tags` | 与 tool/solved 对齐 |
+| `related.*` | 命中后必维护，避免重复劳动 |
+| `last_seen` | 可优先处理近期再次访问的 URL |
+
+## 维护流水线
 
 ```bash
-# 从 Chrome Profile 导入书签/历史/会话（只读）
+export CHROME_USER_DATA_DIR="<your-browser-profile-dir>"
 python3 scripts/import_chrome_sources.py
-
-# 分类 reading 条目
 python3 scripts/classify_reading_items.py
-
-# 将 algorithm/debug/system-design 类 reading 转为 problem
 python3 scripts/reading_to_problem.py
-
-# 从 legacy 代码扫描 solved/tool 索引
 python3 scripts/sync_catalog_from_legacy.py
 ```
 
-默认 Chrome Profile：
-
-`/mnt/c/Users/ordinar/AppData/Local/Google/Chrome/User Data/Default`
-
 ## 状态流转
 
-```
-problem open → wip → solved（写入 solved-list，移出 problem-list）
-                      ↘ 可泛化 → tool-list
-reading inbox → active → done/archived
-```
+![状态流转](docs/images/status-transitions.svg)
 
-## Agent Skill
+## 约束
 
-项目 Skill 在 `skills/auto-learn-agent/SKILL.md`（`.cursor/` 已 gitignore，不提交本地 IDE 配置）。
-
-## Agent 约束
-
-- 优先读本地 `catalog/*.yaml`（远端仓库仅有 `*.yaml.example`）
-- **禁止**提交 `catalog/*.yaml`、`reading-list/sources/`、`problem-list/**/*.md` 到公开仓库
-- 工具代码在 `tool-list/`，题解在 `legacy/`
-- 不修改 Chrome 原始 Profile 文件
-- 自动生成的问题保留 `source: chrome` 和原 URL
-- 解决后更新 `related` 交叉引用
+- 读本地 `catalog/*.yaml`；公开仓仅有 `*.yaml.example`
+- 不提交 catalog 实文件、阅读快照、自动 problem 正文
+- **Git 提交**：禁止 `Co-authored-by: Cursor` 及任何 AI/Bot 共同作者（`.cursor/rules/no-co-author-in-commits.mdc`）
+- 只读浏览器 Profile；保留 `source` 与 URL
+- Skill：`skills/auto-learn-agent/SKILL.md`
