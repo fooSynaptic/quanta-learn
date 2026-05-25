@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+msg_file="${1:?}"
+if grep -qiE 'co-authored-by:.*cursor|co-authored-by:.*cursoragent' "$msg_file"; then
+  echo "Rejected: remove Co-authored-by Cursor from commit message." >&2
+  exit 1
+fi
+exit 0
