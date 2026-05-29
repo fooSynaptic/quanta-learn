@@ -15,4 +15,5 @@ def testcase():
     arr = [6, 3,5,4,1,7,9,2]
     print(select_sort(arr))
 
-testcase()
+if __name__ == "__main__":
+    testcase()

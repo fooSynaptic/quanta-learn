@@ -38,8 +38,8 @@ def twoLarggest(nums, lo, hi):
             pass
         else:
             if nums[i] > nums[x1]:
-                x1 = i
                 x2 = x1
+                x1 = i
             else:
                 x2 = i
     
@@ -50,8 +50,8 @@ def twoLarggest(nums, lo, hi):
 Max2 divide and recursion
 """
 def twoLarggest_3th(nums, lo, hi):
-    if hi-lo == 1:
-        return (lo, hi if nums[lo]>nums[hi] else hi, lo)
+    if hi - lo == 2:
+        return (lo, lo + 1) if nums[lo] >= nums[lo + 1] else (lo + 1, lo)
     
     mid = (lo+hi)//2
     fstLeft, secLeft = twoLarggest_3th(nums, lo, mid)

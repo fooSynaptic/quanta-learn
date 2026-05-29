@@ -15,7 +15,7 @@ class linkedStack():
 
     
     def isEmpty(self):
-        return self.first is None
+        return self.first.next is None
 
 
     def push(self, item):

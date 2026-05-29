@@ -26,8 +26,10 @@ class reSizedArrayStack():
             self.resize(mod = 'expand')
     
     def pop(self):
-        if self.N == 0: return
-        item = self.arr[self.N]
+        if self.N == 0:
+            return None
         self.N -= 1
+        item = self.arr[self.N]
         if self.N <= len(self.arr)/4:
             self.resize(mod = 'shrink')
+        return item

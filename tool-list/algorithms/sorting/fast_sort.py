@@ -54,6 +54,7 @@ def testcase():
     print(arr)
 
 
-testcase()
+if __name__ == "__main__":
+    testcase()
 
 

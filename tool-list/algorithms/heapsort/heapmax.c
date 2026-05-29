@@ -25,13 +25,13 @@ void memory_error(void){
 /* save_string --saves a string on the heap.*/
 /*==========================================*/
 int *initvalue(int *value) 
-{	int *new_value; 	/* where we are going to put string */ 
+{	int *new_value;
 	new_value = malloc(sizeof(int));
 
 	if (new_value == NULL) 
 		memory_error();
 	
-	new_value = value;
+	*new_value = *value;
 	return new_value;
 }
 
@@ -57,12 +57,12 @@ void enter(struct node **node, int *value)
 	return;
 	}
 	
-	result = !((*node)->data == value);
+	result = *((*node)->data) - *value;
 
-	if(result == 0)
+	if (result == 0)
 		return;
 
-	if(result<0)
+	if (result < 0)
 		enter(&(*node)->right, value);
 	else
 		enter(&(*node)->left, value);

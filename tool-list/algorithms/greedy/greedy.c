@@ -13,20 +13,17 @@ int k = 0;
 
 // this program realize the greedy algorithm implement in the activities allcation
 
-int recursive(int *s, int *f, int k, int n){
-	
-	int m = k+1;
-	while(m<=n && *(s+m)<*(f+k)){
+void greedy_select(int *s, int *f, int k, int n)
+{
+	int m = k + 1;
+
+	while (m <= n && s[m] < f[k])
 		m++;
+
+	if (m <= n) {
+		printf("{%d-%d}\n", s[m], f[m]);
+		greedy_select(s, f, m, n);
 	}
-	if(m<=n){
-		printf("{%d-%d}\n", *(s+m), *(f+m));
-		//printf(recursive(*s,*f,m,n));
-	}
-	else{
-		printf("null set\n");
-	}
-	return recursive(*s,*f,m,n);
 }
 
 
@@ -86,7 +83,7 @@ int main(){
 	int *hp = &h[0];	
 	int *fp = &f[0];
 
-	recursive(hp, fp, k, n);
+	greedy_select(hp, fp, k, n);
 
 	return 1;
 

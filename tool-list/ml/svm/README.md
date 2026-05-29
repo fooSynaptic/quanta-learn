@@ -82,7 +82,7 @@ SMO 每次只优化两个变量 $\alpha_a,\alpha_b$：等式约束 $\sum_i y_i\a
 
 **C. 单次二变量更新（`_optimize_pair`）**
 
-5. 用当前 $\alpha_a^{old},\alpha_b^{old},y_a,y_b$ 计算 **$L,H$**；若 $L=H$，盒约束与等式约束已无自由度，跳过。
+5. 用当前 $\alpha_a^{old},\alpha_b^{old},y_a,y_b$ 计算 **$L,H$**（$y_a=y_b$ / $y_a\ne y_b$ 两种情形的完整推导见 [$\alpha_b$ 解的边界：$L$ 与 $H$](./alpha_b_solution_boundary.md)）；若 $L=H$，盒约束与等式约束已无自由度，跳过。
 6. 算 $\eta$；若 $\eta\le 0$（或过小），跳过本轮 pair。
 7. **无约束最优**：$\alpha_b^{new,\text{unc}}=\alpha_b^{old}+y_b(E_a-E_b)/\eta$（推导见 [附录 A](#appendix-alpha-b-unc)）。
 8. **盒约束裁剪**：$\alpha_b^{new}=\mathrm{clip}(\alpha_b^{new,\text{unc}},\,L,\,H)$；若与旧值几乎不变则跳过。

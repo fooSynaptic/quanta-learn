@@ -44,11 +44,20 @@ class MyLinkedList:
 
 
 	def addAtIndex(self, i, val):
-		if i <= self.sz:
-			(pre, _) = self._get(i)
-			nxt = pre.next
-			nxt_nxt = nxt.next if nxt else None
-			pre.next = nxt_nxt
-			self.sz -= 1
+		if i > self.sz:
+			return
+		(pre, _) = self._get(i)
+		node = self.Node(val)
+		node.next = pre.next
+		pre.next = node
+		self.sz += 1
+
+
+	def deleteAtIndex(self, i):
+		if i < 0 or i >= self.sz:
+			return
+		(pre, h) = self._get(i)
+		pre.next = h.next
+		self.sz -= 1
 
 

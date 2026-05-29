@@ -22,8 +22,9 @@ def merge(nums1, nums2):
     return res
 
 def testcase():
-    arr = [3,5,4,1,7,9,2]
-    print(select_sort(arr))
+    arr = [3, 5, 4, 1, 7, 9, 2]
+    print(mergesort(arr))
 
 
-testcase()
+if __name__ == "__main__":
+    testcase()
