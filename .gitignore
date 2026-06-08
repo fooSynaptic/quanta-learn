@@ -1,5 +1,6 @@
 # Python
 __pycache__/
+.pytest_cache/
 *.py[cod]
 *.pyo
 .Python
@@ -68,3 +69,12 @@ dashboard/data.json
 *.out
 *.exe
 *.dSYM/
+
+# Compiled C/C++ demos under tool-list (regenerate with gcc/g++)
+tool-list/algorithms/cpp/string/strSplit
+tool-list/algorithms/datastruct/nil
+tool-list/algorithms/fastsort/fastsort
+tool-list/algorithms/greedy/greedy
+tool-list/algorithms/heapsort/heapmax
+tool-list/algorithms/heapsort/arrtoheap
+tool-list/algorithms/heapsort/inittree

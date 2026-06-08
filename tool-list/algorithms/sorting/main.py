@@ -1,7 +1,7 @@
+"""排序算法合集与计时装饰器的演示入口。"""
+
 import random
 from functools import wraps
-from threading import Thread
-
 from time import time
 
 
@@ -36,7 +36,8 @@ def mergeSort(arr):
         return res
 
 
-    if len(arr) == 1: return arr[:]
+    if len(arr) == 1:
+        return arr[:]
     mid = len(arr)//2
     left = mergeSort(arr[:mid])
     right = mergeSort(arr[mid:])
@@ -58,15 +59,15 @@ def bubbleSort(arr):
 
 
 def record_time(func):
-    """自定义装饰函数的装饰器"""
-    
+    """打印被装饰函数耗时的装饰器。"""
+
     @wraps(func)
     def wrapper(*args, **kwargs):
         start = time()
         result = func(*args, **kwargs)
         print('{}: {}秒'.format(func.__name__, time() - start))
         return result
-        
+
     return wrapper
 
 def main():
@@ -74,7 +75,7 @@ def main():
     arr = [6, 3,5,4,1,7,9,2,6,4,8,9,1,3,5,7,9,2,3]
     record_time(fastsort)(copy.deepcopy(arr), 0, len(arr)-1)
     print(arr)
-    
+
     res = record_time(mergeSort)(copy.deepcopy(arr))
     print(res)
 

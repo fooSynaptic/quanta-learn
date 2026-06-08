@@ -59,6 +59,7 @@ int main(){
 
 	root = p1;
 	treeTravel(root);
+	printf("\n");
 
-	getchar();
+	return 0;
 }

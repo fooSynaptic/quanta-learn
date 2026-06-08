@@ -1,0 +1,30 @@
+# Ruff config for maintained Python code (scripts, dashboard, tests, tool-list).
+# legacy/ is excluded — archived solutions, not lint-gated.
+
+target-version = "py310"
+line-length = 100
+
+exclude = [
+    "legacy",
+    ".pytest_cache",
+    "problem-list",
+    "reading-list",
+    "catalog",
+    "solved-list",
+    "dashboard/data.json",
+]
+
+[lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "W",   # pycodestyle warnings
+]
+ignore = [
+    "E501",  # line length — many legacy-style one-liners in tool-list
+]
+
+# Algorithm teaching code often uses l/r bounds and compact if-bodies.
+[lint.per-file-ignores]
+"tool-list/algorithms/**" = ["E701", "E741"]

@@ -69,18 +69,29 @@ def merge_by_key(
             continue
         if item_id in merged:
             base = merged[item_id]
+            changed = False
             for k, v in item.items():
                 if v in (None, "", [], {}):
                     continue
+                if k == "updated_at":
+                    continue
                 if k == "tags" and isinstance(v, list):
-                    base["tags"] = sorted(set(base.get("tags", []) + v))
+                    new_tags = sorted(set(base.get("tags", []) + v))
+                    if new_tags != base.get("tags"):
+                        base["tags"] = new_tags
+                        changed = True
                 elif k == "related" and isinstance(v, dict):
                     rel = base.setdefault("related", {})
                     for rk, rv in v.items():
-                        rel[rk] = sorted(set(rel.get(rk, []) + (rv or [])))
-                else:
+                        merged_rel = sorted(set(rel.get(rk, []) + (rv or [])))
+                        if merged_rel != rel.get(rk):
+                            rel[rk] = merged_rel
+                            changed = True
+                elif base.get(k) != v:
                     base[k] = v
-            base["updated_at"] = today()
+                    changed = True
+            if changed:
+                base["updated_at"] = today()
         else:
             item.setdefault("created_at", today())
             item["updated_at"] = today()

@@ -7,7 +7,6 @@
 ```text
 tool-list/
 ├── README.md
-├── registry.yaml          # 与 catalog 同步的简要注册表
 ├── runners/               # 统一运行入口（待扩展）
 ├── ml/
 │   └── svm/               # SMO 线性 SVM

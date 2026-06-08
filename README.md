@@ -43,4 +43,16 @@ python3 scripts/build_dashboard_stats.py
 
 ## 依赖
 
-Python 3.10+，`pip install -r requirements.txt`
+Python 3.10+：
+
+```bash
+pip install -r requirements.txt          # 运行脚本与 SMO
+pip install -r requirements-dev.txt      # 开发：pytest、ruff
+```
+
+本地检查（与 CI 一致）：
+
+```bash
+ruff check scripts dashboard tests tool-list
+python3 -m pytest tests/ -q
+```

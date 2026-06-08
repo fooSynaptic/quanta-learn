@@ -13,8 +13,8 @@
 
 设计见 [UI-DESIGN.md](UI-DESIGN.md)（**v0.2 已确认**）。
 
-- [ ] P0：`scripts/build_dashboard_stats.py`（指标 + `dashboard/stats.json`）
-- [ ] P1/v1：`dashboard/server.py` + 前端
+- [x] P0：`scripts/build_dashboard_stats.py`（指标 + `dashboard/data.json`）
+- [x] P1/v1：`dashboard/server.py` + 前端
   - 默认 **阅读看板**；`archived` **默认折叠**
   - Tab：阅读 / 问题 / **题解**；顶栏 **`solved_count`**
   - **拖拽**改 reading/problem `status` 并写回 YAML
@@ -36,3 +36,5 @@
 - [x] Chrome 书签 / 历史 / 会话只读导入
 - [x] reading 指标（classify）与 reading → problem 转化
 - [x] 四清单框架与开源文档（SVG 流程图）
+- [x] Dashboard 指标聚合（`build_dashboard_stats.py` → `dashboard/data.json`）
+- [x] Dashboard 服务与前端（看板、题解 Tab、拖拽改状态写回 YAML）

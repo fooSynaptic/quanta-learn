@@ -1,8 +1,7 @@
-"""Linear SVM trained by Sequential Minimal Optimization (SMO).
+"""用序列最小优化（SMO）训练的线性 SVM。
 
-This module keeps the implementation intentionally small so the SMO constraints
-are easy to read: choose two alphas, optimize one, clip to the box constraint,
-recover the other from the equality constraint, and update the bias term.
+实现刻意保持精简，方便对照 SMO 的约束阅读：选两个 alpha、优化其中一个、
+按盒约束裁剪、再用等式约束反推另一个，最后更新偏置项 b。
 """
 
 from __future__ import annotations
@@ -11,9 +10,9 @@ import numpy as np
 
 
 class SMOSVM:
-    """Soft-margin binary SVM with a linear kernel and SMO solver.
+    """线性核、软间隔的二分类 SVM，使用 SMO 求解。
 
-    Labels must be encoded as ``-1`` and ``1``.
+    标签必须编码为 ``-1`` 和 ``1``。
     """
 
     def __init__(
@@ -35,33 +34,33 @@ class SMOSVM:
         self.w: np.ndarray | None = None
 
     def kernel(self, x1: np.ndarray, x2: np.ndarray) -> float:
-        """Linear kernel K(x1, x2)."""
+        """线性核 K(x1, x2)。"""
         return float(np.dot(x1, x2))
 
     def decision_function(self, X: np.ndarray) -> np.ndarray:
-        """Return raw SVM scores f(x)."""
+        """返回原始决策值 f(x)。"""
         self._check_is_fitted()
         X = np.asarray(X, dtype=float)
         return X @ self.w + self.b
 
     def predict(self, X: np.ndarray) -> np.ndarray:
-        """Predict labels in {-1, 1}."""
+        """预测标签，取值 {-1, 1}。"""
         scores = self.decision_function(X)
         return np.where(scores >= 0, 1, -1)
 
     def score(self, X: np.ndarray, y: np.ndarray) -> float:
-        """Return classification accuracy."""
+        """返回分类准确率。"""
         y = np.asarray(y, dtype=float)
         return float(np.mean(self.predict(X) == y))
 
     def support_vectors(self) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-        """Return support vectors, their labels, and non-zero alphas."""
+        """返回支持向量、对应标签与非零 alpha。"""
         self._check_is_fitted()
         mask = self.alpha > self.eps
         return self.X[mask], self.y[mask], self.alpha[mask]
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> "SMOSVM":
-        """Train the SVM using Platt-style SMO scans."""
+        """用 Platt 风格的 SMO 扫描训练 SVM。"""
         X = np.asarray(X, dtype=float)
         y = np.asarray(y, dtype=float)
         self._validate_training_data(X, y)
@@ -99,7 +98,7 @@ class SMOSVM:
         return self
 
     def _examine_example(self, a_idx: int) -> bool:
-        """Choose alpha_a that violates KKT, then try useful alpha_b values."""
+        """选出违反 KKT 的 alpha_a，再尝试合适的 alpha_b 与之配对优化。"""
         assert self.alpha is not None and self.X is not None and self.y is not None
 
         ya = self.y[a_idx]
@@ -129,7 +128,7 @@ class SMOSVM:
         return False
 
     def _optimize_pair(self, a_idx: int, b_idx: int) -> bool:
-        """Optimize two alpha variables while all constraints stay valid."""
+        """在保持所有约束有效的前提下，优化一对 alpha 变量。"""
         assert self.alpha is not None and self.X is not None and self.y is not None
 
         if a_idx == b_idx:
@@ -240,7 +239,7 @@ SMO_SVM = SMOSVM
 
 
 def demo() -> None:
-    """Run a tiny linearly separable example."""
+    """运行一个极小的线性可分示例。"""
     X = np.array(
         [
             [2.0, 2.0],

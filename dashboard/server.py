@@ -6,10 +6,11 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
@@ -26,6 +27,13 @@ PROBLEM_PATH = CATALOG_DIR / "problem-list.yaml"
 SOLVED_PATH = CATALOG_DIR / "solved-list.yaml"
 PORT = 8765
 
+# Allowed status values per catalog (see catalog/schema.md).
+READING_STATUSES = {"inbox", "active", "done", "archived"}
+PROBLEM_STATUSES = {"open", "wip", "blocked", "deferred", "solved"}
+
+# Serialize read-modify-write on YAML files (ThreadingHTTPServer is multi-threaded).
+_write_lock = threading.Lock()
+
 
 def refresh_data() -> None:
     subprocess.run(
@@ -35,14 +43,23 @@ def refresh_data() -> None:
     )
 
 
+def extract_id(path: str, prefix: str, suffix: str) -> str | None:
+    """Pull the URL-decoded id out of /<prefix>/<id>/<suffix> style paths."""
+    if not (path.startswith(prefix) and path.endswith(suffix)):
+        return None
+    middle = path[len(prefix) : -len(suffix)].strip("/")
+    return unquote(middle) or None
+
+
 def update_item_status(catalog: Path, item_id: str, status: str) -> bool:
-    items = load_yaml(catalog)
-    for item in items:
-        if item.get("id") == item_id:
-            item["status"] = status
-            item["updated_at"] = today()
-            save_yaml(catalog, items)
-            return True
+    with _write_lock:
+        items = load_yaml(catalog)
+        for item in items:
+            if item.get("id") == item_id:
+                item["status"] = status
+                item["updated_at"] = today()
+                save_yaml(catalog, items)
+                return True
     return False
 
 
@@ -80,21 +97,15 @@ class Handler(BaseHTTPRequestHandler):
             if not DATA_JSON.is_file():
                 refresh_data()
             return self._send_json(200, json.loads(DATA_JSON.read_text(encoding="utf-8")))
-        if path.startswith("/api/reading/") and path.endswith("/detail"):
-            item_id = path.split("/")[3]
-            for item in load_yaml(READING_PATH):
-                if item.get("id") == item_id:
-                    return self._send_json(200, item)
-            return self._send_json(404, {"error": "not found"})
-        if path.startswith("/api/solved/") and path.endswith("/detail"):
-            item_id = path.split("/")[3]
-            for item in load_yaml(SOLVED_PATH):
-                if item.get("id") == item_id:
-                    return self._send_json(200, item)
-            return self._send_json(404, {"error": "not found"})
-        if path.startswith("/api/problem/") and path.endswith("/detail"):
-            item_id = path.split("/")[3]
-            for item in load_yaml(PROBLEM_PATH):
+        for prefix, catalog in (
+            ("/api/reading/", READING_PATH),
+            ("/api/solved/", SOLVED_PATH),
+            ("/api/problem/", PROBLEM_PATH),
+        ):
+            item_id = extract_id(path, prefix, "/detail")
+            if item_id is None:
+                continue
+            for item in load_yaml(catalog):
                 if item.get("id") == item_id:
                     return self._send_json(200, item)
             return self._send_json(404, {"error": "not found"})
@@ -113,16 +124,18 @@ class Handler(BaseHTTPRequestHandler):
         if not status:
             return self._send_json(400, {"error": "status required"})
 
-        if path.startswith("/api/reading/") and path.endswith("/status"):
-            item_id = path.split("/")[3]
-            if update_item_status(READING_PATH, item_id, status):
-                refresh_data()
-                return self._send_json(200, {"ok": True, "id": item_id, "status": status})
-            return self._send_json(404, {"error": "not found"})
-
-        if path.startswith("/api/problem/") and path.endswith("/status"):
-            item_id = path.split("/")[3]
-            if update_item_status(PROBLEM_PATH, item_id, status):
+        for prefix, catalog, allowed in (
+            ("/api/reading/", READING_PATH, READING_STATUSES),
+            ("/api/problem/", PROBLEM_PATH, PROBLEM_STATUSES),
+        ):
+            item_id = extract_id(path, prefix, "/status")
+            if item_id is None:
+                continue
+            if status not in allowed:
+                return self._send_json(
+                    400, {"error": f"invalid status; allowed: {sorted(allowed)}"}
+                )
+            if update_item_status(catalog, item_id, status):
                 refresh_data()
                 return self._send_json(200, {"ok": True, "id": item_id, "status": status})
             return self._send_json(404, {"error": "not found"})

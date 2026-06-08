@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import ast
 import sys
 from pathlib import Path
 
@@ -160,6 +161,22 @@ def title_from_stem(stem: str) -> str:
     return stem.replace("_", " ").replace("-", " ").strip().title()
 
 
+def detect_quality(path: Path) -> str:
+    """Best-effort quality flag for archived solutions.
+
+    Only Python is statically checked; C/C++ are left as ``unknown`` because we
+    do not compile them here. ``parseable`` means the AST parsed (no syntax
+    error); ``broken`` means it did not.
+    """
+    if path.suffix.lower() != ".py":
+        return "unknown"
+    try:
+        ast.parse(path.read_text(encoding="utf-8"))
+        return "parseable"
+    except (SyntaxError, UnicodeDecodeError):
+        return "broken"
+
+
 def build_solved_items() -> list[dict]:
     by_stem: dict[str, dict] = {}
 
@@ -181,7 +198,7 @@ def build_solved_items() -> list[dict]:
                 "language": infer_language(path),
                 "topics": topics,
                 "source": source_from_path(rel),
-                "quality": "runnable",
+                "quality": detect_quality(path),
                 "summary": "",
                 "variants": [],
                 "related": {"tools": [], "reading": []},

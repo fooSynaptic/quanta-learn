@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+
+      - name: Ruff
+        run: ruff check scripts dashboard tests tool-list
+
+      - name: Pytest
+        run: python -m pytest tests/ -q
+
+  compile-c:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y gcc g++
+
+      - name: Compile C/C++ tool-list demos
+        run: |
+          set -euo pipefail
+          gcc -Wall -Wextra -o /tmp/fastsort \
+            tool-list/algorithms/fastsort/fastsort.c
+          gcc -Wall -Wextra -o /tmp/greedy \
+            tool-list/algorithms/greedy/greedy.c
+          gcc -Wall -Wextra -o /tmp/arrtoheap \
+            tool-list/algorithms/heapsort/arrtoheap.c
+          gcc -Wall -Wextra -o /tmp/heapmax \
+            tool-list/algorithms/heapsort/heapmax.c
+          gcc -Wall -Wextra -o /tmp/inittree \
+            tool-list/algorithms/heapsort/inittree.c
+          gcc -Wall -Wextra -o /tmp/nil \
+            tool-list/algorithms/datastruct/nil_linklist.c
+          g++ -std=c++11 -Wall -Wextra -o /tmp/strSplit \
+            tool-list/algorithms/cpp/string/strSplit.cpp
+
+      - name: Smoke-run compiled binaries
+        run: |
+          /tmp/fastsort | tail -1
+          /tmp/greedy | head -1
+          /tmp/arrtoheap | head -1
+          /tmp/nil
+          /tmp/strSplit | tail -1

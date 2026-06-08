@@ -1,7 +1,7 @@
-# encoding = utf-8
-# /usr/bin/python3
+"""基于动态数组的栈：满则扩容一倍，过疏则收缩一半。
 
-'''ref: https://www.bilibili.com/video/av60977932/?p=14'''
+参考：https://www.bilibili.com/video/av60977932/?p=14
+"""
 
 
 class reSizedArrayStack():
@@ -18,13 +18,12 @@ class reSizedArrayStack():
         elif mod == 'shrink':
             self.arr = self.arr[:len(self.arr)//2]
 
-
     def push(self, val):
         self.arr[self.N] = val
         self.N += 1
         if self.N == len(self.arr):
             self.resize(mod = 'expand')
-    
+
     def pop(self):
         if self.N == 0:
             return None

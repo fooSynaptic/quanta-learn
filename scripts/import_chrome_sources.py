@@ -17,8 +17,8 @@ if str(ROOT / "scripts") not in sys.path:
 
 from _catalog_utils import (  # noqa: E402
     CATALOG_DIR,
-    merge_by_key,
     load_yaml,
+    merge_by_key,
     save_yaml,
     slugify,
     today,
