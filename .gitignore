@@ -78,3 +78,13 @@ tool-list/algorithms/greedy/greedy
 tool-list/algorithms/heapsort/heapmax
 tool-list/algorithms/heapsort/arrtoheap
 tool-list/algorithms/heapsort/inittree
+tool-list/algorithms/c-classic/heap_sort
+tool-list/algorithms/c-classic/merge_sort
+tool-list/algorithms/c-classic/dijkstra
+tool-list/algorithms/c-classic/linklist
+tool-list/algorithms/c-classic/reverse_linklist
+tool-list/algorithms/c-classic/sqstack
+tool-list/algorithms/c-classic/longest_palmseq
+tool-list/algorithms/c-classic/palindrome_num
+tool-list/algorithms/c-classic/max
+tool-list/algorithms/c-classic/test

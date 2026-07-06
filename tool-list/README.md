@@ -18,6 +18,7 @@ tool-list/
     ├── fastsort/
     ├── greedy/
     ├── datastruct/
+    ├── c-classic/         # C/C++ classics (ex fooSynaptic/C-algorithm)
     └── cpp/               # C++ 基础练习
 ```
 

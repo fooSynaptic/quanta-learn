@@ -140,6 +140,30 @@ TOOL_DEFINITIONS = [
         "doc": "tool-list/algorithms/greedy/greedy.c",
         "related": {"reading": [], "solved": []},
     },
+    {
+        "id": "tool-c-classic",
+        "name": "CClassicAlgorithms",
+        "kind": "library",
+        "paths": [
+            "tool-list/algorithms/c-classic/Dijkstra.cpp",
+            "tool-list/algorithms/c-classic/LinkList.cpp",
+            "tool-list/algorithms/c-classic/SqStack.cpp",
+            "tool-list/algorithms/c-classic/heap_sort.c",
+            "tool-list/algorithms/c-classic/longest_palindrom.h",
+            "tool-list/algorithms/c-classic/longest_palmseq.cpp",
+            "tool-list/algorithms/c-classic/max.cpp",
+            "tool-list/algorithms/c-classic/merge_sort.c",
+            "tool-list/algorithms/c-classic/palindrome_num.cpp",
+            "tool-list/algorithms/c-classic/reverse_linklist.cpp",
+            "tool-list/algorithms/c-classic/test.cpp",
+            "tool-list/algorithms/c-classic/Makefile",
+        ],
+        "entry": "tool-list/algorithms/c-classic/Makefile",
+        "tags": ["c", "cpp", "sorting", "graph", "linked-list", "stack", "palindrome"],
+        "deps": [],
+        "doc": "tool-list/algorithms/c-classic/README.md",
+        "related": {"reading": [], "solved": []},
+    },
 ]
 
 
