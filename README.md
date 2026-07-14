@@ -1,10 +1,8 @@
 # Quanta Learn
 
 
-> **Status: learning archive** — educational / trial code.  
-> Related: **[py_pcalg](https://github.com/fooSynaptic/py_pcalg)** · **[deepseek-tech-notes](https://github.com/fooSynaptic/deepseek-tech-notes)**
 
-**四清单索引框架**：自动汇总学习材料（如 Chrome 书签），用 reading 指标管理 backlog，并复用 tool-list / solved-list 加速消化。
+**四清单索引框架**：自动汇总学习材料（如 Chrome 书签，lack 任务），用 reading 指标管理 backlog，并复用 tool-list / solved-list 加速消化。
 
 **仓库**：[github.com/fooSynaptic/quanta-learn](https://github.com/fooSynaptic/quanta-learn)
 
