@@ -25,7 +25,7 @@ from _catalog_utils import (  # noqa: E402
 )
 
 DEFAULT_CHROME_PROFILE = Path(
-    "/mnt/c/Users/ordinar/AppData/Local/Google/Chrome/User Data/Default"
+    "/path/to/Chrome/User Data/Default"
 )
 OUTPUT_DIR = ROOT / "reading-list" / "sources" / "chrome"
 READING_CATALOG = CATALOG_DIR / "reading-list.yaml"

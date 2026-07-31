@@ -50,5 +50,6 @@ python3 scripts/sync_catalog_from_legacy.py
 - Read local `catalog/*.yaml`; public repo keeps `*.yaml.example` only
 - Do not commit catalog secrets, reading snapshots, or auto-generated problem bodies
 - No AI/bot co-authors in commits (see `.cursor/rules/`)
+- Commit author/committer: `fooSynaptic <19420328+fooSynaptic@users.noreply.github.com>` only (no personal inbox)
 - Browser profile is read-only; keep `source` and URL
 - Skill: `skills/auto-learn-agent/SKILL.md`
