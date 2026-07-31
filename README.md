@@ -1,34 +1,39 @@
 # Quanta Learn
 
-## Four-List Index Framework
-Automatically aggregate learning materials (e.g., Chrome bookmarks, task trackers). Manage your backlog via reading metrics, and reuse `tool-list` / `solved-list` to speed up knowledge absorption.
+A personal learning index: ingest material into `reading-list`, archive solutions in `solved-list`, and keep reusable pieces in `tool-list`.
 
 **Repository**: [github.com/fooSynaptic/quanta-learn](https://github.com/fooSynaptic/quanta-learn)
 
+This repo may include solutions and experiment notes for [*Reinforcement Learning from Human Feedback*](https://github.com/natolambert/rlhf-book) (rlhf-book).
+
 ## Features
-- **Four core lists workflow**: `tool-list` → `solved-list` → `reading-list` → `problem-list`
-- **Browser data importer**: Read-only import bookmarks, browsing history & sessions into the `reading-list` index
-- **Local dashboard**: Run `python3 dashboard/server.py` to access the panel at http://127.0.0.1:8765/
+- Four lists: `reading-list` → `solved-list` → `tool-list` (plus `problem-list` for open work)
+- Read-only Chrome bookmark / history / session import into the reading index
+- Local dashboard: `python3 dashboard/server.py` → http://127.0.0.1:8765/
 
 ## Quick Start
 ```bash
 git clone https://github.com/fooSynaptic/quanta-learn.git
 cd quanta-learn
-
 pip install -r requirements.txt
 bash scripts/init_local_catalog.sh
 ```
 
+## Domains
+| Domain | reading | solved | tool |
+|--------|---------|--------|------|
+| [rlhf-book](reading-list/rlhf-book/) | [reading-list/rlhf-book](reading-list/rlhf-book/) | [solved-list/rlhf-book](solved-list/rlhf-book/) | [tool-list/rlhf-book](tool-list/rlhf-book/) |
+
 ## Documentation
 | Document | Content |
-|------|------|
-| [DESIGN.md](DESIGN.md) | Knowledge digestion loop, data flow & roadmap |
-| [AGENTS.md](AGENTS.md) | Agent protocol specs |
-| [docs/UI-DESIGN.md](docs/UI-DESIGN.md) | Dashboard UI design |
-| [docs/TODO.md](docs/TODO.md) | Development backlog |
-| [catalog/README.md](catalog/README.md) | Local catalog initialization guide |
+|----------|---------|
+| [DESIGN.md](DESIGN.md) | Digestion loop, data flow, roadmap |
+| [AGENTS.md](AGENTS.md) | Agent protocol |
+| [docs/UI-DESIGN.md](docs/UI-DESIGN.md) | Dashboard UI |
+| [docs/TODO.md](docs/TODO.md) | Backlog |
+| [catalog/README.md](catalog/README.md) | Local catalog setup |
 
-## Maintenance Scripts
+## Maintenance
 ```bash
 export CHROME_USER_DATA_DIR="<your-browser-profile-dir>"
 python3 scripts/import_chrome_sources.py
@@ -39,13 +44,12 @@ python3 scripts/build_dashboard_stats.py
 ```
 
 ## Dependencies
-Python 3.10 or newer:
+Python 3.10+:
 ```bash
-pip install -r requirements.txt          # Runtime dependencies for scripts & SMO
-pip install -r requirements-dev.txt      # Dev tools: pytest, ruff linter
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
 ```
 
-Local pre-check (matches CI pipeline rules):
 ```bash
 ruff check scripts dashboard tests tool-list
 python3 -m pytest tests/ -q

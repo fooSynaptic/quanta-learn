@@ -1,14 +1,10 @@
-# catalog（本地私密）
+# catalog (local)
 
-**本目录下的 `*.yaml` 索引文件不进入公开仓库**，仅保留在本机。
+`*.yaml` index files stay on the machine; they are not published.
 
-四清单服务于 **阅读清单消化**：`reading-list.yaml` 存自动导入的学习材料与进度；`tool-list` / `solved-list` 供匹配复用；`problem-list` 承接待动手项。
-
-## 首次使用
+## First run
 
 ```bash
-cd <your-clone>   # 克隆 quanta-learn 后的目录
-
 cp catalog/reading-list.yaml.example catalog/reading-list.yaml
 cp catalog/problem-list.yaml.example catalog/problem-list.yaml
 cp catalog/solved-list.yaml.example catalog/solved-list.yaml
@@ -20,16 +16,16 @@ python3 scripts/classify_reading_items.py
 python3 scripts/reading_to_problem.py
 ```
 
-## 公开仓库包含
+## Public
 
-- `schema.md` — 字段定义
-- `*.yaml.example` — 空模板
+- `schema.md`
+- `*.yaml.example`
 
-## 本地生成（已 gitignore）
+## Local (gitignored)
 
-| 文件 | 内容 |
-|------|------|
-| `reading-list.yaml` | Chrome 书签/历史 |
-| `problem-list.yaml` | 待解决问题 |
-| `solved-list.yaml` | 题解索引 |
-| `tool-list.yaml` | 工具注册 |
+| File | Content |
+|------|---------|
+| `reading-list.yaml` | Chrome bookmarks / history |
+| `problem-list.yaml` | Open problems |
+| `solved-list.yaml` | Solution index |
+| `tool-list.yaml` | Tool registry |
