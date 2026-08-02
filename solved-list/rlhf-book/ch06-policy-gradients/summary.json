@@ -1,0 +1,284 @@
+{
+  "kl1": {
+    "n_rows": 3750,
+    "n_corr": 750,
+    "n_loss": 3000,
+    "hours": 5.739932705031501,
+    "last_step": 3749,
+    "correctness": {
+      "all": {
+        "n": 750,
+        "mean": 0.8655596257448196,
+        "median": 0.8888888657093048,
+        "min": 0.38437503576278687,
+        "max": 1.0,
+        "first": 0.3975694477558136,
+        "last": 0.7062499523162842
+      },
+      "early": 0.8106585845947266,
+      "mid": 0.8891026298999787,
+      "late": 0.8969176627397537,
+      "last100": 0.8713298651576042
+    },
+    "format_all": {
+      "n": 750,
+      "mean": 0.9909166666666667,
+      "median": 1.0,
+      "min": 0.6875,
+      "max": 1.0,
+      "first": 0.6875,
+      "last": 1.0
+    },
+    "binary_all": {
+      "n": 750,
+      "mean": 0.8655596257448196,
+      "median": 0.8888888657093048,
+      "min": 0.38437503576278687,
+      "max": 1.0,
+      "first": 0.3975694477558136,
+      "last": 0.7062499523162842
+    },
+    "loss": {
+      "all": {
+        "n": 3000,
+        "mean": -0.01158540180370619,
+        "median": -0.01556836802046746,
+        "min": -0.8509361632168293,
+        "max": 0.9286074563860893,
+        "first": -0.1155834048986435,
+        "last": 0.07265620678663254
+      },
+      "spikes_abs_ge_1e3": 0,
+      "early_spikes": 0,
+      "late_spikes": 0
+    },
+    "grad": {
+      "all": {
+        "n": 3000,
+        "mean": 1.816519775390625,
+        "median": 1.328125,
+        "min": 0.017333984375,
+        "max": 24.25,
+        "first": 4.5625,
+        "last": 0.296875
+      },
+      "spikes_abs_ge_1e3": 0,
+      "early_spikes": 0,
+      "late_spikes": 0
+    },
+    "meta": {
+      "algo": "grpo",
+      "variant": "kl1",
+      "compare_group": "ch06.5-kl-comparison-20260731-161259",
+      "label": "GRPO / kl1 (beta=0.04)",
+      "config": null,
+      "seed": null
+    },
+    "meta_raw_keys": [
+      "experiment_id",
+      "algo",
+      "loss",
+      "variant",
+      "compare_group",
+      "label",
+      "model_name",
+      "wandb_run_name",
+      "config_path",
+      "gpu_ids",
+      "num_rollouts",
+      "temperature",
+      "format_weight",
+      "data_size",
+      "monitor",
+      "run_id"
+    ]
+  },
+  "kl2": {
+    "n_rows": 3750,
+    "n_corr": 750,
+    "n_loss": 3000,
+    "hours": 8.509964499738482,
+    "last_step": 3749,
+    "correctness": {
+      "all": {
+        "n": 750,
+        "mean": 0.8324691319465637,
+        "median": 0.8474392294883728,
+        "min": 0.3975694477558136,
+        "max": 1.0,
+        "first": 0.3975694477558136,
+        "last": 0.6312499642372131
+      },
+      "early": 0.8043971230983734,
+      "mid": 0.835444643497467,
+      "late": 0.8575656292438507,
+      "last100": 0.8675059521198273
+    },
+    "format_all": {
+      "n": 750,
+      "mean": 0.967,
+      "median": 0.9765625,
+      "min": 0.6875,
+      "max": 1.0,
+      "first": 0.6875,
+      "last": 1.0
+    },
+    "binary_all": {
+      "n": 750,
+      "mean": 0.8324691319465637,
+      "median": 0.8474392294883728,
+      "min": 0.3975694477558136,
+      "max": 1.0,
+      "first": 0.3975694477558136,
+      "last": 0.6312499642372131
+    },
+    "loss": {
+      "all": {
+        "n": 3000,
+        "mean": 0.002002710143691123,
+        "median": -0.00039495411328971386,
+        "min": -0.6947046667337418,
+        "max": 0.80153389275074,
+        "first": -0.1155834048986435,
+        "last": 0.4625841891975142
+      },
+      "spikes_abs_ge_1e3": 0,
+      "early_spikes": 0,
+      "late_spikes": 0
+    },
+    "grad": {
+      "all": {
+        "n": 3000,
+        "mean": 2.5095916341145834,
+        "median": 2.375,
+        "min": 0.0810546875,
+        "max": 15.125,
+        "first": 4.5,
+        "last": 2.671875
+      },
+      "spikes_abs_ge_1e3": 0,
+      "early_spikes": 0,
+      "late_spikes": 0
+    },
+    "meta": {
+      "algo": "grpo",
+      "variant": "kl2",
+      "compare_group": "ch06.5-kl-comparison-20260731-161259",
+      "label": "GRPO / kl2 (beta=0.04)",
+      "config": null,
+      "seed": null
+    },
+    "meta_raw_keys": [
+      "experiment_id",
+      "algo",
+      "loss",
+      "variant",
+      "compare_group",
+      "label",
+      "model_name",
+      "wandb_run_name",
+      "config_path",
+      "gpu_ids",
+      "num_rollouts",
+      "temperature",
+      "format_weight",
+      "data_size",
+      "monitor",
+      "run_id"
+    ]
+  },
+  "kl3": {
+    "n_rows": 3750,
+    "n_corr": 750,
+    "n_loss": 3000,
+    "hours": 8.633750412729052,
+    "last_step": 3749,
+    "correctness": {
+      "all": {
+        "n": 750,
+        "mean": 0.7205189014126857,
+        "median": 0.7343749701976776,
+        "min": 0.0357142873108387,
+        "max": 1.0,
+        "first": 0.3975694477558136,
+        "last": 0.44687503576278687
+      },
+      "early": 0.677704619243741,
+      "mid": 0.739952232837677,
+      "late": 0.7438998521566391,
+      "last100": 0.7436062768101692
+    },
+    "format_all": {
+      "n": 750,
+      "mean": 0.91140625,
+      "median": 0.9296875,
+      "min": 0.5078125,
+      "max": 1.0,
+      "first": 0.6875,
+      "last": 0.953125
+    },
+    "binary_all": {
+      "n": 750,
+      "mean": 0.7205189014126857,
+      "median": 0.7343749701976776,
+      "min": 0.0357142873108387,
+      "max": 1.0,
+      "first": 0.3975694477558136,
+      "last": 0.44687503576278687
+    },
+    "loss": {
+      "all": {
+        "n": 3000,
+        "mean": 98130766.81667307,
+        "median": 0.0015847571194171906,
+        "min": -0.6954707056283951,
+        "max": 249421422718.8125,
+        "first": -0.1155834048986435,
+        "last": 0.35390855744481087
+      },
+      "spikes_abs_ge_1e3": 19,
+      "early_spikes": 19,
+      "late_spikes": 0
+    },
+    "grad": {
+      "all": {
+        "n": 3000,
+        "mean": 2418274502317.6396,
+        "median": 3.34375,
+        "min": 0.1865234375,
+        "max": 7142427534032896.0,
+        "first": 4.5,
+        "last": 5.65625
+      },
+      "spikes_abs_ge_1e3": 48,
+      "early_spikes": 42,
+      "late_spikes": 5
+    },
+    "meta": {
+      "algo": "grpo",
+      "variant": "kl3",
+      "compare_group": "ch06.5-kl-comparison-20260731-161259",
+      "label": "GRPO / kl3 (beta=0.04)",
+      "config": null,
+      "seed": null
+    },
+    "meta_raw_keys": [
+      "experiment_id",
+      "algo",
+      "loss",
+      "variant",
+      "compare_group",
+      "label",
+      "model_name",
+      "wandb_run_name",
+      "config_path",
+      "gpu_ids",
+      "num_rollouts",
+      "temperature",
+      "format_weight",
+      "data_size",
+      "monitor",
+      "run_id"
+    ]
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "queue": "queue_20260731-084642",
+  "runs": [
+    {
+      "run_id": "ch08_dpo_1k-gpu4_20260731-084642",
+      "algo": "dpo",
+      "variant": "1k-gpu4",
+      "compare_group": "ch08-expt1-dpo-small",
+      "max_samples": 1000,
+      "beta": 0.1,
+      "learning_rate": 5e-07,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 63,
+      "hours": 0.042540640102492436,
+      "first": {
+        "loss": 0.69140625,
+        "accuracy": 0.0,
+        "margins": 0.0,
+        "chosen_rewards": 0.0,
+        "rejected_rewards": 0.0
+      },
+      "last": {
+        "loss": 0.69140625,
+        "accuracy": 0.0,
+        "margins": 0.0,
+        "chosen_rewards": 0.0,
+        "rejected_rewards": 0.0,
+        "log_odds_ratio": null,
+        "or_loss": null,
+        "sft_loss": null
+      },
+      "best": {
+        "step": 61,
+        "loss": 0.662109375,
+        "accuracy": 0.375,
+        "margins": 0.0671234130859375
+      }
+    },
+    {
+      "run_id": "ch08_dpo_full-yaml-gpu5_20260731-084642",
+      "algo": "dpo",
+      "variant": "full-yaml-gpu5",
+      "compare_group": "ch08-expt2-compare-losses",
+      "max_samples": 6400,
+      "beta": 0.1,
+      "learning_rate": 5e-06,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 300,
+      "hours": 3.270353413687812,
+      "first": {
+        "loss": 0.69140625,
+        "accuracy": 0.0,
+        "margins": 0.0,
+        "chosen_rewards": 0.0,
+        "rejected_rewards": 0.0
+      },
+      "last": {
+        "loss": 0.4208984375,
+        "accuracy": 0.90625,
+        "margins": 0.765380859375,
+        "chosen_rewards": 0.1381683349609375,
+        "rejected_rewards": -0.626953125,
+        "log_odds_ratio": null,
+        "or_loss": null,
+        "sft_loss": null
+      },
+      "best": {
+        "step": 241,
+        "loss": 0.398681640625,
+        "accuracy": 0.9375,
+        "margins": 0.848388671875
+      }
+    },
+    {
+      "run_id": "ch08_ipo_full-yaml-gpu4_20260731-085303",
+      "algo": "ipo",
+      "variant": "full-yaml-gpu4",
+      "compare_group": "ch08-expt2-compare-losses",
+      "max_samples": 6400,
+      "beta": 0.1,
+      "learning_rate": 5e-06,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 300,
+      "hours": 3.3850743452707928,
+      "first": {
+        "loss": 25.0,
+        "accuracy": 0.0,
+        "margins": 0.0,
+        "chosen_rewards": 0.0,
+        "rejected_rewards": 0.0
+      },
+      "last": {
+        "loss": 6.23046875,
+        "accuracy": 0.96875,
+        "margins": 0.37158203125,
+        "chosen_rewards": 0.1998291015625,
+        "rejected_rewards": -0.1719970703125,
+        "log_odds_ratio": null,
+        "or_loss": null,
+        "sft_loss": null
+      },
+      "best": {
+        "step": 241,
+        "loss": 6.7734375,
+        "accuracy": 0.96875,
+        "margins": 0.380615234375
+      }
+    },
+    {
+      "run_id": "ch08_dpo_norm_full-yaml-gpu6_20260731-110724",
+      "algo": "dpo_norm",
+      "variant": "full-yaml-gpu6",
+      "compare_group": "ch08-expt2-compare-losses",
+      "max_samples": 6400,
+      "beta": 2.0,
+      "learning_rate": 5e-06,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 300,
+      "hours": 3.2735712260007857,
+      "first": {
+        "loss": 0.69140625,
+        "accuracy": 0.0,
+        "margins": 0.0,
+        "chosen_rewards": 0.0,
+        "rejected_rewards": 0.0
+      },
+      "last": {
+        "loss": 0.58544921875,
+        "accuracy": 0.875,
+        "margins": 0.289306640625,
+        "chosen_rewards": -0.15380859375,
+        "rejected_rewards": -0.44287109375,
+        "log_odds_ratio": null,
+        "or_loss": null,
+        "sft_loss": null
+      },
+      "best": {
+        "step": 203,
+        "loss": 0.566650390625,
+        "accuracy": 0.90625,
+        "margins": 0.376953125
+      }
+    },
+    {
+      "run_id": "ch08_simpo_full-yaml-gpu7_20260731-110724",
+      "algo": "simpo",
+      "variant": "full-yaml-gpu7",
+      "compare_group": "ch08-expt3-ref-free",
+      "max_samples": 12800,
+      "beta": 2.0,
+      "learning_rate": 8e-07,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 600,
+      "hours": 5.2601960784859125,
+      "first": {
+        "loss": 1.29443359375,
+        "accuracy": 0.5625,
+        "margins": 0.12506103515625,
+        "chosen_rewards": null,
+        "rejected_rewards": null
+      },
+      "last": {
+        "loss": 1.2470703125,
+        "accuracy": 0.609375,
+        "margins": 0.3304443359375,
+        "chosen_rewards": null,
+        "rejected_rewards": null,
+        "log_odds_ratio": null,
+        "or_loss": null,
+        "sft_loss": null
+      },
+      "best": {
+        "step": 583,
+        "loss": 1.09033203125,
+        "accuracy": 0.75,
+        "margins": 0.254638671875
+      }
+    },
+    {
+      "run_id": "ch08_orpo_full-yaml-gpu5_20260731-120655",
+      "algo": "orpo",
+      "variant": "full-yaml-gpu5",
+      "compare_group": "ch08-expt3-ref-free",
+      "max_samples": 12800,
+      "beta": 0.1,
+      "learning_rate": 1e-06,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 600,
+      "hours": 7.806311346623633,
+      "first": {
+        "loss": 1.3145894408226013,
+        "accuracy": 0.5625,
+        "margins": 0.012533568777143955,
+        "chosen_rewards": null,
+        "rejected_rewards": null
+      },
+      "last": {
+        "loss": 1.1696150302886963,
+        "accuracy": 0.609375,
+        "margins": 0.03278808546019718,
+        "chosen_rewards": null,
+        "rejected_rewards": null,
+        "log_odds_ratio": 0.3578803110867739,
+        "or_loss": 0.07028029952198267,
+        "sft_loss": 1.1005859375
+      },
+      "best": {
+        "step": 583,
+        "loss": 1.0992839112877846,
+        "accuracy": 0.765625,
+        "margins": 0.0251663209637627
+      }
+    },
+    {
+      "run_id": "ch08_dpo_n2k-l1024-gpu4_20260731-121725",
+      "algo": "dpo",
+      "variant": "n2k-l1024-gpu4",
+      "compare_group": "ch08-expt4-vary-data",
+      "max_samples": 2000,
+      "beta": 0.1,
+      "learning_rate": 5e-07,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 125,
+      "hours": 0.16622966316011217,
+      "first": {
+        "loss": 0.69140625,
+        "accuracy": 0.0,
+        "margins": 0.0,
+        "chosen_rewards": 0.0,
+        "rejected_rewards": 0.0
+      },
+      "last": {
+        "loss": 0.6904296875,
+        "accuracy": 0.125,
+        "margins": 0.0093994140625,
+        "chosen_rewards": 0.0218963623046875,
+        "rejected_rewards": 0.01251220703125,
+        "log_odds_ratio": null,
+        "or_loss": null,
+        "sft_loss": null
+      },
+      "best": {
+        "step": 60,
+        "loss": 0.666015625,
+        "accuracy": 0.5,
+        "margins": 0.06806659698486328
+      }
+    },
+    {
+      "run_id": "ch08_dpo_n6400-l2048-gpu4_20260731-122828",
+      "algo": "dpo",
+      "variant": "n6400-l2048-gpu4",
+      "compare_group": "ch08-expt4-vary-data",
+      "max_samples": 6400,
+      "beta": 0.1,
+      "learning_rate": 5e-07,
+      "model_name": "allenai/OLMo-2-0425-1B-SFT",
+      "dataset_name": "argilla/ultrafeedback-binarized-preferences-cleaned",
+      "n_steps": 400,
+      "hours": 1.1286086418893602,
+      "first": {
+        "loss": 0.69140625,
+        "accuracy": 0.0,
+        "margins": 0.0,
+        "chosen_rewards": 0.0,
+        "rejected_rewards": 0.0
+      },
+      "last": {
+        "loss": 0.6865234375,
+        "accuracy": 0.125,
+        "margins": 0.01212310791015625,
+        "chosen_rewards": 0.012121200561523438,
+        "rejected_rewards": 0.0,
+        "log_odds_ratio": null,
+        "or_loss": null,
+        "sft_loss": null
+      },
+      "best": {
+        "step": 75,
+        "loss": 0.6572265625,
+        "accuracy": 0.5,
+        "margins": 0.079345703125
+      }
+    }
+  ]
+}
