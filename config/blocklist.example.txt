@@ -6,8 +6,8 @@
 #
 # Empty or missing file => nothing is skipped.
 #
-# Override the path with QUANTA_BLOCKLIST_FILE, or pass patterns inline with
-# QUANTA_BLOCKLIST="pattern-a,pattern-b".
+# Override the path with SYNAPTIC_BLOCKLIST_FILE, or pass patterns inline with
+# SYNAPTIC_BLOCKLIST="pattern-a,pattern-b".
 
 # example-employer
 # \binternal wiki\b

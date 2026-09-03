@@ -1,4 +1,4 @@
-# Quanta Learn — Agent Guide
+# Synaptic Learn — Agent Guide
 
 Default task: run the long-horizon learning loop — ingest sources into `reading-list`, advance a study budget, archive `solved-list`, extract `tool-list`, and park short-term blockers in `problem-list`. See [DESIGN.md](DESIGN.md).
 

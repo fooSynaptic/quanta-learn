@@ -91,7 +91,7 @@ def test_redact_profile_path():
 def test_build_chrome_tags_folder_and_domain():
     tags = build_chrome_tags(
         source="chrome-bookmark",
-        url="https://github.com/fooSynaptic/quanta-learn",
+        url="https://github.com/fooSynaptic/synaptic-learn",
         source_path="bookmark_bar/ML/RLHF",
     )
     assert "chrome-bookmark" in tags

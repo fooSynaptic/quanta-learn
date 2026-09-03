@@ -44,7 +44,7 @@ Fields shared by Agent workflows and maintenance scripts.
 
 Chrome ingest notes:
 
-- Drop items matching the local blocklist (`config/blocklist.local.txt` or `QUANTA_BLOCKLIST`)
+- Drop items matching the local blocklist (`config/blocklist.local.txt` or `SYNAPTIC_BLOCKLIST`)
 - Redact emails, JWTs, home paths, sensitive query keys, URL userinfo, fragments
 - Manifest `profile` path is home-redacted; snapshots stay under gitignored `reading-list/sources/`
 

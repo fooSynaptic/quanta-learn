@@ -2,6 +2,7 @@
 
 Maps to **Suggested Experiments** at the end of Chapter 6 (*Policy Gradient Methods*) and the companion `code/policy_gradients/` package.  
 Tool placeholder: [`tool-list/rlhf-book/placeholders/policy_gradients/`](../../../tool-list/rlhf-book/placeholders/policy_gradients/).  
+KL estimator fix notes: [`NOTES_kl_estimators_is_vs_kl.md`](NOTES_kl_estimators_is_vs_kl.md).  
 Hardware: Hopper (96GB HBM). Model: `Qwen/Qwen3-1.7B`. Task: `spell_backward` (reasoning-gym). Metrics stayed in local `metrics.jsonl` (W&B disabled).
 
 ## Book experiment ↔ this run

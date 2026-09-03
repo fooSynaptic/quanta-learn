@@ -14,16 +14,19 @@ ROOT = Path(__file__).resolve().parents[1]
 # Local-only blocklist: URL / title / folder patterns that must never enter the
 # catalog. Keep actual entries out of the repo (see config/blocklist.example.txt).
 BLOCKLIST_FILE = Path(
-    os.environ.get("QUANTA_BLOCKLIST_FILE", ROOT / "config" / "blocklist.local.txt")
+    os.environ.get("SYNAPTIC_BLOCKLIST_FILE")
+    or os.environ.get("QUANTA_BLOCKLIST_FILE")
+    or (ROOT / "config" / "blocklist.local.txt")
 )
-BLOCKLIST_ENV = "QUANTA_BLOCKLIST"
+BLOCKLIST_ENV = "SYNAPTIC_BLOCKLIST"
+_BLOCKLIST_ENV_LEGACY = "QUANTA_BLOCKLIST"
 
 
 @lru_cache(maxsize=1)
 def load_blocklist() -> tuple[re.Pattern[str], ...]:
     """Regex patterns from env (comma-separated) plus an optional local file."""
     raw: list[str] = []
-    env_value = os.environ.get(BLOCKLIST_ENV, "")
+    env_value = os.environ.get(BLOCKLIST_ENV) or os.environ.get(_BLOCKLIST_ENV_LEGACY, "") or ""
     raw.extend(part.strip() for part in env_value.split(",") if part.strip())
     if BLOCKLIST_FILE.is_file():
         for line in BLOCKLIST_FILE.read_text(encoding="utf-8").splitlines():

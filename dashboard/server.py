@@ -155,7 +155,7 @@ def main() -> None:
     refresh_data()
     host = "127.0.0.1"
     server = ThreadingHTTPServer((host, PORT), Handler)
-    print(f"Quanta Learn Dashboard: http://{host}:{PORT}/")
+    print(f"Synaptic Learn Dashboard: http://{host}:{PORT}/")
     print("Ctrl+C to stop")
     server.serve_forever()
 

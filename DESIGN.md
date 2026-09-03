@@ -1,4 +1,4 @@
-# Quanta Learn — Design
+# Synaptic Learn — Design
 
 > Design v2.0 · long-horizon learning agent  
 > Canonical core diagram: [docs/images/learning-core-flow.svg](docs/images/learning-core-flow.svg) (routing decisions: split/plan → match tool/solved → finish-this-loop → reusable/extract). This is list-transition policy, not an LLM/agent API sequence. Older SVGs under `docs/images/` may still show the Chrome-only pipeline.
@@ -39,7 +39,7 @@ Build an agent that **accelerates learning** over long loops:
 Chrome privacy (must hold):
 
 - Drop any item matching the local blocklist (URL + title + folder path)
-- Blocklist lives outside version control: `config/blocklist.local.txt` or `QUANTA_BLOCKLIST`
+- Blocklist lives outside version control: `config/blocklist.local.txt` or `SYNAPTIC_BLOCKLIST`
 - Redact emails, JWTs, home paths, sensitive query keys, URL userinfo, fragments
 - Manifest profile path is home-redacted; snapshots stay gitignored
 
@@ -52,7 +52,7 @@ Chrome privacy (must hold):
 | monthly | ~1 month | Coverage check, review needs, tool-candidate quality |
 | seminar | ~6 months | Cross-domain summary, open problems, next-horizon plan |
 
-Implementation target: `python -m quanta_learn run daily|weekly|monthly|semiannual` (not fully landed yet).
+Implementation target: `python -m synaptic_learn run daily|weekly|monthly|semiannual` (not fully landed yet).
 
 ## Reading metrics
 

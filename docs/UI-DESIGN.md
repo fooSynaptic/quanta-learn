@@ -33,7 +33,7 @@ Built by `scripts/build_dashboard_stats.py`.
 ## Layout
 
 ```text
-Header: Quanta Learn
+Header: Synaptic Learn
 Tabs: Reading | Problems | Solved | Tools
 Main: filterable table / cards for the active tab
 Detail: fields + related links

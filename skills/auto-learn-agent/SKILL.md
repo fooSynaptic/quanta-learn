@@ -1,9 +1,9 @@
 ---
 name: auto-learn-agent
-description: Accelerate reading-list digestion for quanta-learn. Ingest Lark/Chrome sources, tag and redact Chrome items, match tool-list and solved-list, park short-term blockers in problem-list, and maintain related cross-references.
+description: Accelerate reading-list digestion for synaptic-learn. Ingest Lark/Chrome sources, tag and redact Chrome items, match tool-list and solved-list, park short-term blockers in problem-list, and maintain related cross-references.
 ---
 
-# Quanta Learn Agent
+# Synaptic Learn Agent
 
 Primary goal: **run the long-horizon learning loop**, not only answer one-off questions.
 

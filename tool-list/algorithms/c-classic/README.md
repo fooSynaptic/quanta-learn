@@ -2,7 +2,7 @@
 
 Classic C/C++ algorithm implementations migrated from the standalone repo
 [`fooSynaptic/C-algorithm`](https://github.com/fooSynaptic/C-algorithm) into
-`quanta-learn` as a reusable `tool-list` module.
+`synaptic-learn` as a reusable `tool-list` module.
 
 ## Included Algorithms
 

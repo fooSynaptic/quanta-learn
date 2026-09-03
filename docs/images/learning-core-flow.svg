@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 740"
-     role="img" aria-label="Quanta Learn core learning flow with routing decisions"
+     role="img" aria-label="Synaptic Learn core learning flow with routing decisions"
      font-family="Helvetica Neue,Arial,sans-serif">
 <defs>
   <style>
@@ -30,7 +30,7 @@
   </marker>
 </defs>
 <rect width="100%" height="100%" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
-<text x="590.0" y="30" text-anchor="middle" class="title">Quanta Learn — Core Learning Flow</text>
+<text x="590.0" y="30" text-anchor="middle" class="title">Synaptic Learn — Core Learning Flow</text>
 <text x="590.0" y="50" text-anchor="middle" class="subtitle">Ingest → routing decisions → four lists · time loops set the budget</text>
 <rect x="24" y="84" width="170" height="128" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.6"/>
 <rect x="38" y="72" width="96" height="24" rx="12" fill="#2563eb"/>

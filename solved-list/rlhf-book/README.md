@@ -6,7 +6,7 @@ Training code is **not** vendored here. Use [tool-list/rlhf-book](../../tool-lis
 
 | Chapter | Book topic | Report | Status |
 |---------|------------|--------|--------|
-| [6 · Policy Gradients](ch06-policy-gradients/REPORT.md) | GRPO / group-relative estimators / KL | [REPORT](ch06-policy-gradients/REPORT.md) | KL estimator full runs ✅ |
+| [6 · Policy Gradients](ch06-policy-gradients/REPORT.md) | GRPO / group-relative estimators / KL | [REPORT](ch06-policy-gradients/REPORT.md) · [NOTES](ch06-policy-gradients/NOTES_kl_estimators_is_vs_kl.md) | Pre-fix KL tables archived; see notes |
 | [8 · Direct Alignment](ch08-direct-alignment/REPORT.md) | DPO / IPO / SimPO / ORPO | [REPORT](ch08-direct-alignment/REPORT.md) | Suggested 1–4 queue 8/8 ✅ |
 | [9 · Rejection Sampling](ch09-rejection-sampling/REPORT.md) | RS selection → SFT | [REPORT](ch09-rejection-sampling/REPORT.md) | Suggested 1–4 ✅ |
 | [12 · Synthetic Data / Distillation](ch12-synthetic-data/REPORT.md) | SDPO / on-policy knobs | [REPORT](ch12-synthetic-data/REPORT.md) | Smoke + 4-knob sweep ✅ |

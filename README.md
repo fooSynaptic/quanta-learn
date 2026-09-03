@@ -1,4 +1,4 @@
-# Quanta Learn
+# Synaptic Learn
 
 An **accelerated learning** project: ingest tasks and reading material, digest them against a study plan, archive reusable tools, and keep running long-horizon review loops.
 
@@ -51,8 +51,8 @@ Next:
 ## Quick Start
 
 ```bash
-git clone https://github.com/fooSynaptic/quanta-learn.git
-cd quanta-learn
+git clone https://github.com/fooSynaptic/synaptic-learn.git
+cd synaptic-learn
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 bash scripts/init_local_catalog.sh
