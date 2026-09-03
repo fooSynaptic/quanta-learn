@@ -70,6 +70,9 @@ dashboard/data.json
 *.exe
 *.dSYM/
 
+# Local-only ingest blocklist
+config/blocklist.local.txt
+
 # Compiled C/C++ demos under tool-list (regenerate with gcc/g++)
 tool-list/algorithms/cpp/string/strSplit
 tool-list/algorithms/datastruct/nil

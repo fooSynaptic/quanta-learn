@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
-"""Read Chrome bookmarks/history/sessions (read-only) and merge into reading-list."""
+"""Read Chrome bookmarks/history/sessions (read-only) and merge into reading-list.
+
+Pipeline:
+1. Read-only copy of Chrome profile artifacts
+2. Skip URLs matching the local blocklist (see config/blocklist.example.txt)
+3. Redact emails, tokens, home paths, sensitive query params
+4. Attach chrome + folder + domain tags
+5. Merge into local catalog/reading-list.yaml (gitignored)
+"""
 
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import sqlite3
 import sys
@@ -23,12 +32,33 @@ from _catalog_utils import (  # noqa: E402
     slugify,
     today,
 )
+from chrome_privacy import (  # noqa: E402
+    filter_and_sanitize,
+    load_blocklist,
+    redact_profile_path,
+)
 
 DEFAULT_CHROME_PROFILE = Path(
     "/path/to/Chrome/User Data/Default"
 )
 OUTPUT_DIR = ROOT / "reading-list" / "sources" / "chrome"
 READING_CATALOG = CATALOG_DIR / "reading-list.yaml"
+
+
+def resolve_chrome_profile(argv: list[str]) -> Path:
+    if len(argv) > 1:
+        return Path(argv[1]).expanduser()
+    env = os.environ.get("CHROME_USER_DATA_DIR", "").strip()
+    if env:
+        base = Path(env).expanduser()
+        # Accept either the profile dir (…/Default) or the User Data root.
+        if (base / "Bookmarks").exists() or (base / "History").exists():
+            return base
+        default = base / "Default"
+        if default.exists():
+            return default
+        return base
+    return DEFAULT_CHROME_PROFILE
 
 
 def copy_readonly(src: Path, dst: Path) -> None:
@@ -55,7 +85,7 @@ def parse_bookmarks(node: dict[str, Any], folder_path: str = "") -> list[dict[st
                 "captured_at": today(),
                 "last_seen": today(),
                 "category": "unknown",
-                "tags": [part.lower() for part in current_path.split("/") if part][:5],
+                "tags": [],
                 "summary": "",
                 "related": {"tools": [], "solved": [], "problems": []},
             }
@@ -127,7 +157,7 @@ def load_history(profile: Path, limit: int = 200) -> list[dict[str, Any]]:
                 "captured_at": today(),
                 "last_seen": today(),
                 "category": "unknown",
-                "tags": ["chrome-history"],
+                "tags": [],
                 "summary": "",
                 "related": {"tools": [], "solved": [], "problems": []},
                 "visit_count": row["visit_count"],
@@ -167,7 +197,7 @@ def load_sessions(profile: Path) -> list[dict[str, Any]]:
                     "captured_at": today(),
                     "last_seen": today(),
                     "category": "unknown",
-                    "tags": ["chrome-session"],
+                    "tags": [],
                     "summary": "",
                     "related": {"tools": [], "solved": [], "problems": []},
                 }
@@ -201,9 +231,12 @@ def dedupe_by_url(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def main() -> None:
-    profile = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_CHROME_PROFILE
+    profile = resolve_chrome_profile(sys.argv)
     if not profile.exists():
-        raise SystemExit(f"Chrome profile not found: {profile}")
+        raise SystemExit(
+            f"Chrome profile not found: {profile}\n"
+            "Pass the profile path as argv[1], or set CHROME_USER_DATA_DIR."
+        )
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -211,7 +244,9 @@ def main() -> None:
     history_items = load_history(profile)
     session_items = load_sessions(profile)
 
-    incoming = dedupe_by_url(bookmark_items + history_items + session_items)
+    raw = bookmark_items + history_items + session_items
+    sanitized, privacy_stats = filter_and_sanitize(raw)
+    incoming = dedupe_by_url(sanitized)
     existing = load_yaml(READING_CATALOG)
     merged = merge_by_key(existing, incoming, "id")
 
@@ -219,13 +254,20 @@ def main() -> None:
 
     manifest = {
         "imported_at": datetime.now().isoformat(timespec="seconds"),
-        "profile": str(profile),
+        "profile": redact_profile_path(str(profile)),
         "counts": {
             "bookmarks": len(bookmark_items),
             "history": len(history_items),
             "sessions": len(session_items),
+            "raw_total": len(raw),
+            "after_privacy_filter": len(sanitized),
+            "skipped_blocklist": privacy_stats["skipped_blocklist"],
             "merged_unique": len(incoming),
             "catalog_total": len(merged),
+        },
+        "privacy": {
+            "redacted": True,
+            "blocklist_patterns": len(load_blocklist()),
         },
     }
     (OUTPUT_DIR / f"manifest-{today()}.json").write_text(

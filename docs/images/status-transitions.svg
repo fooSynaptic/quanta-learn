@@ -12,7 +12,7 @@
       .hint { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
     </style>
   </defs>
-  <text x="360" y="26" class="title" text-anchor="middle">状态流转</text>
+  <text x="360" y="26" class="title" text-anchor="middle">StatusFlow</text>
   <text x="24" y="58" class="section">problem-list</text>
   <rect x="24" y="68" width="64" height="36" class="box"/>
   <text x="56" y="91" class="label">open</text>
@@ -22,7 +22,7 @@
   <text x="220" y="91" class="label">solved</text>
   <line x1="88" y1="86" x2="106" y2="86" class="edge"/>
   <line x1="164" y1="86" x2="182" y2="86" class="edge"/>
-  <text x="320" y="91" class="hint">→ &lt;CATALOG_SOLVED&gt;；可泛化 → &lt;CATALOG_TOOL&gt;</text>
+  <text x="320" y="91" class="hint">→ &lt;CATALOG_SOLVED&gt;；Reusable → &lt;CATALOG_TOOL&gt;</text>
   <text x="24" y="148" class="section">reading-list</text>
   <rect x="24" y="158" width="56" height="36" class="box"/>
   <text x="52" y="181" class="label">inbox</text>

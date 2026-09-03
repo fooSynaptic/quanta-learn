@@ -32,12 +32,21 @@ Fields shared by Agent workflows and maintenance scripts.
   captured_at: 2026-05-24
   last_seen: 2026-05-24
   category: reading | algorithm | debug | system-design | unknown
+  tags: []          # chrome: source + folder + domain (see scripts/chrome_privacy.py)
   summary: ""
+  privacy:
+    redacted: true  # Chrome ingest strips emails/tokens/home paths
   related:
     tools: []
     solved: []
     problems: []
 ```
+
+Chrome ingest notes:
+
+- Drop items matching the local blocklist (`config/blocklist.local.txt` or `QUANTA_BLOCKLIST`)
+- Redact emails, JWTs, home paths, sensitive query keys, URL userinfo, fragments
+- Manifest `profile` path is home-redacted; snapshots stay under gitignored `reading-list/sources/`
 
 ## problem-list
 

@@ -13,9 +13,9 @@
       .hint { font: 12px "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; text-anchor: middle; }
     </style>
   </defs>
-  <text x="360" y="28" class="title" text-anchor="middle">新问题 → 四清单检索顺序</text>
+  <text x="360" y="28" class="title" text-anchor="middle">NewProblem → Four-list search order</text>
   <rect x="16" y="72" width="88" height="44" class="box-start"/>
-  <text x="60" y="99" class="label">新问题</text>
+  <text x="60" y="99" class="label">NewProblem</text>
   <rect x="128" y="72" width="100" height="44" class="box"/>
   <text x="178" y="99" class="label">tool-list</text>
   <rect x="252" y="72" width="108" height="44" class="box"/>
@@ -26,11 +26,11 @@
   <text x="570" y="92" class="label">problem-list</text>
   <text x="570" y="108" class="label">(open)</text>
   <rect x="648" y="72" width="56" height="44" class="box-end"/>
-  <text x="676" y="99" class="label">解决</text>
+  <text x="676" y="99" class="label">Solve</text>
   <line x1="104" y1="94" x2="124" y2="94" class="edge"/>
   <line x1="228" y1="94" x2="248" y2="94" class="edge"/>
   <line x1="360" y1="94" x2="380" y2="94" class="edge"/>
   <line x1="492" y1="94" x2="512" y2="94" class="edge"/>
   <line x1="624" y1="94" x2="644" y2="94" class="edge"/>
-  <text x="360" y="168" class="hint">解决后写入 solved-list；可泛化则登记 tool-list</text>
+  <text x="360" y="168" class="hint">Write after solve solved-list；Register if reusable tool-list</text>
 </svg>

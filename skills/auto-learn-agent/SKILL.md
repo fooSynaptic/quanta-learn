@@ -1,18 +1,21 @@
 ---
 name: auto-learn-agent
-description: Accelerate reading-list digestion for quanta-learn. Auto-import learning materials, match tool-list and solved-list using reading metrics, convert actionable items to problems, and maintain related cross-references.
+description: Accelerate reading-list digestion for quanta-learn. Ingest Lark/Chrome sources, tag and redact Chrome items, match tool-list and solved-list, park short-term blockers in problem-list, and maintain related cross-references.
 ---
 
 # Quanta Learn Agent
 
-Primary goal: **digest the reading-list backlog**, not only answer one-off questions.
+Primary goal: **run the long-horizon learning loop**, not only answer one-off questions.
+
+Canonical flow: [docs/images/learning-core-flow.svg](../../docs/images/learning-core-flow.svg).
 
 ## Default workflow (reading digestion)
 
 1. List `<CATALOG_READING>` items with `status: inbox` or `active`.
 2. Match `<CATALOG_TOOL>` then `<CATALOG_SOLVED>` using tags, category, title, topics.
 3. If sufficient → set `related`, `status: done`, optional `summary`.
-4. If needs work and category is algorithm/debug/system-design → ensure problem exists (`reading_to_problem.py`), solve, then update solved/tool and `related`.
+4. If reusable → propose / refresh solved and tool entries.
+5. If blocked soon → ensure a problem exists with `blocked` / `deferred` and link `related`.
 
 ## Secondary workflow (new question)
 
@@ -29,6 +32,7 @@ python3 scripts/sync_catalog_from_legacy.py
 ```
 
 Never write to the browser profile. Do not commit local catalog YAML or reading snapshots.
+Chrome ingest must redact secrets/home paths and honor the local blocklist.
 
 ## After solving
 

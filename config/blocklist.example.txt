@@ -1,0 +1,14 @@
+# Chrome ingest blocklist (example).
+#
+# Copy to config/blocklist.local.txt (gitignored) and add your own entries.
+# One case-insensitive regex per line; matched against URL + title + folder path.
+# Any match drops the item before it reaches the catalog.
+#
+# Empty or missing file => nothing is skipped.
+#
+# Override the path with QUANTA_BLOCKLIST_FILE, or pass patterns inline with
+# QUANTA_BLOCKLIST="pattern-a,pattern-b".
+
+# example-employer
+# \binternal wiki\b
+# ^https?://[^/]*\.corp\.example\.com/

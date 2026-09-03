@@ -18,16 +18,16 @@
       .edge-no { stroke: #ea580c; }
     </style>
   </defs>
-  <text x="410" y="28" class="title" text-anchor="middle">阅读清单消化闭环（核心价值）</text>
-  <text x="410" y="48" class="subtitle">自动取材 → 指标驱动 → 复用已有解法 → 消化 backlog</text>
+  <text x="410" y="28" class="title" text-anchor="middle">Reading-list digestion loop</text>
+  <text x="410" y="48" class="subtitle">Ingest → metrics → reuse tools/solved → clear backlog</text>
 
   <rect x="24" y="72" width="120" height="48" class="box-in"/>
-  <text x="84" y="94" class="label">浏览器 / 手动</text>
-  <text x="84" y="110" class="label-sm">学习材料来源</text>
+  <text x="84" y="94" class="label">Browser / manual</text>
+  <text x="84" y="110" class="label-sm">Learning sources</text>
 
   <rect x="180" y="72" width="130" height="48" class="box"/>
-  <text x="245" y="94" class="label">import 脚本</text>
-  <text x="245" y="110" class="label-sm">只读合并</text>
+  <text x="245" y="94" class="label">Import script</text>
+  <text x="245" y="110" class="label-sm">Read-only merge</text>
 
   <rect x="350" y="60" width="150" height="72" class="box-read"/>
   <text x="425" y="84" class="label">&lt;CATALOG_READING&gt;</text>
@@ -36,30 +36,30 @@
 
   <rect x="540" y="72" width="120" height="48" class="box"/>
   <text x="600" y="94" class="label">classify</text>
-  <text x="600" y="110" class="label-sm">打 category 指标</text>
+  <text x="600" y="110" class="label-sm">Assign category</text>
 
   <rect x="180" y="180" width="140" height="64" class="box-match"/>
-  <text x="250" y="204" class="label">匹配已有能力</text>
+  <text x="250" y="204" class="label">Match existing skills</text>
   <text x="250" y="220" class="label-sm">&lt;CATALOG_TOOL&gt;</text>
   <text x="250" y="234" class="label-sm">&lt;CATALOG_SOLVED&gt;</text>
 
   <rect x="380" y="180" width="150" height="64" class="box-out"/>
-  <text x="455" y="204" class="label">可消化？</text>
-  <text x="455" y="220" class="label-sm">是 → status: done</text>
-  <text x="455" y="234" class="label-sm">写 related 交叉引用</text>
+  <text x="455" y="204" class="label">Digestible?</text>
+  <text x="455" y="220" class="label-sm">Yes → status: done</text>
+  <text x="455" y="234" class="label-sm">Write related links</text>
 
   <rect x="580" y="180" width="150" height="64" class="box-out"/>
-  <text x="655" y="204" class="label">否 → 待动手</text>
+  <text x="655" y="204" class="label">No → needs work</text>
   <text x="655" y="220" class="label-sm">reading_to_problem</text>
   <text x="655" y="234" class="label-sm">&lt;CATALOG_PROBLEM&gt;</text>
 
   <rect x="380" y="300" width="150" height="48" class="box-match"/>
-  <text x="455" y="322" class="label">Agent 解题</text>
+  <text x="455" y="322" class="label">Agent solves</text>
   <text x="455" y="338" class="label-sm">tool → solved → reading</text>
 
   <rect x="580" y="300" width="150" height="48" class="box-read"/>
-  <text x="655" y="322" class="label">晋升 solved / tool</text>
-  <text x="655" y="338" class="label-sm">下次阅读更快命中</text>
+  <text x="655" y="322" class="label">Promote solved / tool</text>
+  <text x="655" y="338" class="label-sm">Faster hits next time</text>
 
   <line x1="144" y1="96" x2="178" y2="96" class="edge"/>
   <line x1="310" y1="96" x2="348" y2="96" class="edge"/>
