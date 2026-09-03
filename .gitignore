@@ -16,6 +16,7 @@ Thumbs.db
 # IDE
 .idea/
 .vscode/
+.cursor/
 
 # Cursor (local IDE config; rules 可入库)
 .cursor/*
