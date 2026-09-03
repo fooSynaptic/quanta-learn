@@ -1,0 +1,30 @@
+# Same as grpo_kl1.yaml except kl_estimator / run name.
+data:
+  size: 3000
+  specs:
+    - name: spell_backward
+      weight: 1
+      config:
+        min_word_len: 3
+        max_word_len: 10
+
+loss: grpo
+model_name: Qwen/Qwen3-1.7B
+clip_eps_lo: 0.2
+clip_eps_hi: 0.2
+beta: 0.04
+kl_estimator: kl2
+lr: 5.0e-6
+temperature: 0.6
+top_p: 0.95
+top_k: 20
+min_p: 0.0
+max_new_tokens: 512
+prompts_per_step: 4
+num_rollouts: 8
+train_batch_size: 2
+batch_acc: 4
+max_norm: 1.0
+seed: 42
+wandb_project: null
+wandb_run_name: grpo_kl2

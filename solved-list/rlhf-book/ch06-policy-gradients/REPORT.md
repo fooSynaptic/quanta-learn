@@ -1,7 +1,8 @@
 # Chapter 6 · Policy Gradients — Experiment Report
 
 Maps to **Suggested Experiments** at the end of Chapter 6 (*Policy Gradient Methods*) and the companion `code/policy_gradients/` package.  
-Hardware: NVIDIA H20. Model: `Qwen/Qwen3-1.7B`. Task: `spell_backward` (reasoning-gym). Metrics stayed in local `metrics.jsonl` (W&B disabled).
+Tool placeholder: [`tool-list/rlhf-book/placeholders/policy_gradients/`](../../../tool-list/rlhf-book/placeholders/policy_gradients/).  
+Hardware: Hopper (96GB HBM). Model: `Qwen/Qwen3-1.7B`. Task: `spell_backward` (reasoning-gym). Metrics stayed in local `metrics.jsonl` (W&B disabled).
 
 ## Book experiment ↔ this run
 
@@ -75,9 +76,11 @@ Most `kl3` spikes sit in the first third of steps (~42/48). `kl1` / `kl2` never 
 
 ## Reproduce
 
+Full trainer is **not** in this repo (stub only under tool-list). Use upstream [natolambert/rlhf-book](https://github.com/natolambert/rlhf-book) `code/policy_gradients/`, with example YAML sketches in the [tool placeholder configs](../../../tool-list/rlhf-book/placeholders/policy_gradients/configs/).
+
 ```bash
 export WANDB_MODE=disabled
-cd code
+cd code   # from upstream rlhf-book checkout
 uv run python -m policy_gradients.train --config policy_gradients/configs/grpo_kl1.yaml
 # swap config for kl2 / kl3
 ```
@@ -88,3 +91,4 @@ uv run python -m policy_gradients.train --config policy_gradients/configs/grpo_k
 |------|-------|
 | `figures/*.png` | curves |
 | `summary.json` | aggregate stats |
+| [`tool-list/.../policy_gradients/`](../../../tool-list/rlhf-book/placeholders/policy_gradients/) | stub + config sketches |

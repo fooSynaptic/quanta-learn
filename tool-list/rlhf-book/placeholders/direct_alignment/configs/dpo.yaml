@@ -1,0 +1,23 @@
+# Example DPO config sketch (ch08 YAML-scale recipe).
+# Placeholder only — load with upstream direct_alignment.train.
+
+model_name: allenai/OLMo-2-0425-1B-SFT
+loss: dpo
+beta: 0.1
+dataset_name: argilla/ultrafeedback-binarized-preferences-cleaned
+dataset_split: train
+max_samples: 6400
+max_length: 2048
+learning_rate: 5.0e-6
+num_epochs: 3
+batch_size: 8
+gradient_accumulation_steps: 8
+warmup_ratio: 0.1
+max_grad_norm: 1.0
+gradient_checkpointing: true
+bf16: true
+wandb_project: null
+log_every: 10
+output_dir: ./outputs
+save_model: false
+seed: 42

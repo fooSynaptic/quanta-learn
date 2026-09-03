@@ -1,7 +1,8 @@
 # Chapter 8 · Direct Alignment — Experiment Report
 
 Maps to **Suggested Experiments** at the end of Chapter 8 (*Direct Alignment*) and `code/direct_alignment/`.  
-Hardware: NVIDIA H20 (1 GPU per job). Model: `allenai/OLMo-2-0425-1B-SFT`. Data: UltraFeedback binarized preferences. W&B disabled; metrics in local `metrics.jsonl`.
+Tool placeholder: [`tool-list/rlhf-book/placeholders/direct_alignment/`](../../../tool-list/rlhf-book/placeholders/direct_alignment/).  
+Hardware: Hopper (96GB HBM), 1 GPU per job. Model: `allenai/OLMo-2-0425-1B-SFT`. Data: UltraFeedback binarized preferences. W&B disabled; metrics in local `metrics.jsonl`.
 
 Queue `queue_20260731-084642`: **8/8 jobs succeeded** (one mid-run DPO 1k collision on a busy GPU was discarded).
 
@@ -94,10 +95,11 @@ Queue `queue_20260731-084642`: **8/8 jobs succeeded** (one mid-run DPO 1k collis
 
 ## Reproduce
 
+Full trainer is **not** in this repo (stub only under tool-list). Use upstream [natolambert/rlhf-book](https://github.com/natolambert/rlhf-book) `code/direct_alignment/`, with an example YAML sketch in the [tool placeholder configs](../../../tool-list/rlhf-book/placeholders/direct_alignment/configs/).
+
 ```bash
 export WANDB_MODE=disabled
-cd code
-# book scripts (names may wrap the module CLI)
+cd code   # from upstream rlhf-book checkout
 uv run python -m direct_alignment.train --config direct_alignment/configs/dpo.yaml
 # likewise ipo.yaml / dpo_norm.yaml / simpo.yaml / orpo.yaml
 ```
@@ -108,3 +110,4 @@ uv run python -m direct_alignment.train --config direct_alignment/configs/dpo.ya
 |------|-------|
 | `figures/expt{1-4}_*.png` | curves |
 | `summary.json` | first/last/best per run |
+| [`tool-list/.../direct_alignment/`](../../../tool-list/rlhf-book/placeholders/direct_alignment/) | stub + config sketch |

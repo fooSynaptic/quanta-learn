@@ -1,0 +1,40 @@
+# Example RS config sketch (ch09 top_per_prompt).
+# Placeholder only — load with upstream rejection_sampling.{preprocess,train}.
+
+data:
+  name: openai/gsm8k
+  subset: main
+  train_split: train
+  test_split: test
+  max_train_samples: 1000
+  max_test_samples: 200
+
+model_name: Qwen/Qwen3-1.7B
+reward_model_name: nvidia/AceMath-7B-RM
+
+temperature: 0.8
+top_p: 0.95
+top_k: 20
+min_p: 0.0
+max_new_tokens: 512
+num_completions_per_prompt: 8
+rollout_batch_size: 8
+score_batch_size: 2
+
+selection:
+  strategy: top_per_prompt
+
+lr: 5.0e-6
+num_epochs: 2
+train_batch_size: 2
+batch_acc: 4
+max_norm: 1.0
+max_seq_length: 1024
+
+eval_temperature: 0.0
+eval_max_new_tokens: 512
+
+seed: 42
+output_dir: ./rejection_sampling/output
+save_checkpoint: false
+wandb_project: null
