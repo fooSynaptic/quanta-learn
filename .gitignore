@@ -16,12 +16,9 @@ Thumbs.db
 # IDE
 .idea/
 .vscode/
-.cursor/
 
 # Cursor (local IDE config; rules 可入库)
 .cursor/*
-!.cursor/rules/
-!.cursor/rules/**
 
 # --- Private / local-only (do not open-source) ---
 # Catalog indexes (Chrome, problems, personal metadata)
