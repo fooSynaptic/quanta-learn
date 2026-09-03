@@ -1,6 +1,6 @@
 # Quanta Learn
 
-A personal learning index: ingest material into `reading-list`, archive solutions in `solved-list`, and keep reusable pieces in `tool-list`.
+Rep motivation: ingest material into `reading-list`, archive solutions in `solved-list`, and keep reusable pieces in `tool-list`.
 
 This repo may include solutions and experiment notes for [*Reinforcement Learning from Human Feedback*](https://github.com/natolambert/rlhf-book) (rlhf-book). Full trainers are **not** vendored — see [`tool-list/rlhf-book`](tool-list/rlhf-book/) placeholders that point at upstream `code/`.
 
